@@ -4,5 +4,9 @@
     <string name="app_name">Cycle Credits</string>
     <string name="hello_world">Welcome to Cycle Credits</string>
     <string name="action_settings">Settings</string>
+    <string name="addARouteLbl">New Route</string>
+    <string name="searchRouteLbl">Search Routes</string>
+    <string name="carbonCreditsLbl">C02 Saved</string>
+    <string name="homeDividerText">Recently added Routes</string>
 
 </resources>

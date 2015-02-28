@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- App colors -->
+    <color name="darkGreen1">#207F34</color>
+    <color name="darkGreen2">#467F52 </color>
+    <color name="lightGreen1">#8DFFA4</color>
+    <color name="lightGreen2">#40FF67</color>
+    <color name="mediumGreen">#33CC53</color>
+    
+    <color name="appBGColor">#f8f9ff</color>
+    
+    <!-- Font Colors -->
+    <color name="appFontColor">#363737</color>
+    
+</resources>
