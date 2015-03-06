@@ -8,5 +8,9 @@
     <string name="searchRouteLbl">Search Routes</string>
     <string name="carbonCreditsLbl">C02 Saved</string>
     <string name="homeDividerText">Recently added Routes</string>
+    <string name="title_activity_homes">Homes</string>
+    
+    <string name="homeTableDate">Date</string>
+    <string name="homeTableDistance">Distance</string>
 
 </resources>

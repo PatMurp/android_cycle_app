@@ -49,4 +49,26 @@
         android:layout_height="wrap_content"
         android:text="@string/homeDividerText" />
 
+    <TextView
+        android:id="@+id/homeTableHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/homeTableDistance" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent" 
+        android:layout_height="fill_parent">
+
+	    <ListView
+	        android:id="@android:id/list"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentStart="true" >
+
+	    </ListView>
+        
+    </RelativeLayout>
+
 </LinearLayout>

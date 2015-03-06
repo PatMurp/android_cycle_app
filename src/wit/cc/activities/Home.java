@@ -1,16 +1,30 @@
-package wit.example.cyclecredits;
+package wit.cc.activities;
 
-import android.support.v7.app.ActionBarActivity;
+import java.util.List;
+
+import wit.cc.R;
+import wit.cc.adapters.RouteAdapter;
+import wit.cc.models.Route;
+import wit.cc.models.RouteData;
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-public class Home extends ActionBarActivity {
+public class Home extends ListActivity {
+	
+	List<Route> routes = new RouteData().getRoutes(); // get hard coded data from RouteData.java
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		
+		RouteAdapter adapter = new RouteAdapter(this, R.layout.item_route, routes);
+		setListAdapter(adapter);
+		
 	}
 
 	@Override
@@ -31,4 +45,6 @@ public class Home extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	
 }
