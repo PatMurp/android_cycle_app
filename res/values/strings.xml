@@ -16,6 +16,7 @@
     <string name="homeTableDistance">Distance</string>
     <!-- car picker screen -->
     <string name="spinnerMessage">Please pick a car co2 Band</string>
+    <string name="radioGroupSelect">Select a car Co2 Band</string>
     
 	<string name="a1Selected">A1</string>
 	<string name="a2Selected">A2</string>
