@@ -22,7 +22,8 @@
 	        android:layout_height="120dp"
 	        android:layout_margin="2dp"
 	        android:drawableTop="@drawable/new_route"
-	        android:text="@string/addARouteLbl" />
+	        android:text="@string/addARouteLbl"
+	        android:onClick="add" />
 	
 	    <Button
 	        android:id="@+id/searchRoutesBtn"

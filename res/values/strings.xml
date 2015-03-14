@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	
+	<!-- action bar menu -->
     <string name="menuHelp">Help</string>
     <string name="menuHome">Home</string>
     
     <string name="app_name">Cycle Credits</string>
     <string name="hello_world">Welcome to Cycle Credits</string>
     <string name="action_settings">Settings</string>
+    <!-- home screen -->
     <string name="addARouteLbl">New Route</string>
     <string name="searchRouteLbl">Search Routes</string>
     <string name="carbonCreditsLbl">C02 Saved</string>
     <string name="homeDividerText">Recently added Routes</string>
-    <string name="title_activity_homes">Homes</string>
-    
     <string name="homeTableDate">Date</string>
     <string name="homeTableDistance">Distance</string>
-
+    <!-- car picker screen -->
+    <string name="spinnerMessage">Please pick a car co2 Band</string>
+    
+	<string name="a1Selected">A1</string>
+	<string name="a2Selected">A2</string>
+	<string name="a3Selected">A3</string>
+	<string name="a4Selected">A4</string>
+	<string name="b1Selected">B1</string>
+	<string name="b2Selected">B2</string>
+	<string name="cSelected">C</string>
+	<string name="dSelected">D</string>
+	<string name="eSelected">E</string>
+	<string name="fSelected">F</string>
+	<string name="gSelected">G</string>
+	
+	
+	
 </resources>

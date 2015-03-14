@@ -1,0 +1,130 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="wit.cc.CarPicker" >
+
+    <TextView
+        android:id="@+id/pickerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/spinnerMessage" 
+        android:textSize="20sp"/>
+
+    <CheckBox
+        android:id="@+id/a1Band"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/pickerText"
+        android:layout_alignStart="@+id/pickerText"
+        android:layout_below="@+id/pickerText"
+        android:text="@string/a1Selected" 
+        android:onClick="onCheckBoxClicked"/>
+
+    <CheckBox
+        android:id="@+id/a2Band"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/a1Band"
+        android:layout_alignStart="@+id/a1Band"
+        android:layout_below="@+id/a1Band"
+        android:text="@string/a2Selected" 
+        android:onClick="onCheckBoxClicked" />
+
+    <CheckBox
+        android:id="@+id/a3Band"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/a2Band"
+        android:layout_alignStart="@+id/a2Band"
+        android:layout_below="@+id/a2Band"
+        android:text="@string/a3Selected" 
+        android:onClick="onCheckBoxClicked" />
+
+    <CheckBox
+        android:id="@+id/a4Band"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/a3Band"
+        android:layout_alignStart="@+id/a3Band"
+        android:layout_below="@+id/a3Band"
+        android:text="@string/a4Selected" 
+        android:onClick="onCheckBoxClicked" />
+    
+    <CheckBox
+        android:id="@+id/b1Band"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/a4Band"
+        android:layout_alignStart="@+id/a4Band"
+        android:layout_below="@+id/a4Band"
+        android:text="@string/b1Selected" 
+        android:onClick="onCheckBoxClicked" />
+    
+    <CheckBox
+        android:id="@+id/b2Band"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/b1Band"
+        android:layout_alignStart="@+id/b1Band"
+        android:layout_below="@+id/b1Band"
+        android:text="@string/b2Selected" 
+        android:onClick="onCheckBoxClicked" />
+    
+     <CheckBox
+        android:id="@+id/cBand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/b2Band"
+        android:layout_alignStart="@+id/b2Band"
+        android:layout_below="@+id/b2Band"
+        android:text="@string/cSelected" 
+        android:onClick="onCheckBoxClicked" />
+     
+     <CheckBox
+        android:id="@+id/dBand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cBand"
+        android:layout_alignStart="@+id/cBand"
+        android:layout_below="@+id/cBand"
+        android:text="@string/dSelected" 
+        android:onClick="onCheckBoxClicked" />
+     
+     <CheckBox
+        android:id="@+id/eBand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dBand"
+        android:layout_alignStart="@+id/dBand"
+        android:layout_below="@+id/dBand"
+        android:text="@string/eSelected" 
+        android:onClick="onCheckBoxClicked" />
+     
+     <CheckBox
+        android:id="@+id/fBand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/eBand"
+        android:layout_alignStart="@+id/eBand"
+        android:layout_below="@+id/eBand"
+        android:text="@string/fSelected" 
+        android:onClick="onCheckBoxClicked" />
+     
+      <CheckBox
+        android:id="@+id/gBand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fBand"
+        android:layout_alignStart="@+id/fBand"
+        android:layout_below="@+id/fBand"
+        android:text="@string/gSelected" 
+        android:onClick="onCheckBoxClicked" />
+
+</RelativeLayout>

@@ -3,8 +3,10 @@ package wit.cc.activities;
 import wit.cc.R;
 import wit.cc.adapters.RouteAdapter;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
 
-public class Home extends Base {
+public class Home extends Base { //ListActivity
 	
 
 	@Override
@@ -12,7 +14,17 @@ public class Home extends Base {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		
-		RouteAdapter adapter = new RouteAdapter(this, R.layout.item_route, routes);
-		setListAdapter(adapter);
+//		RouteAdapter adapter = new RouteAdapter(this, R.layout.item_route, routes);
+//		setListAdapter(adapter);
+		
+//		RouteAdapter adapter = new RouteAdapter(this, R.layout.item_route, routes);
+//		ListView lv = (ListView) findViewById(R.id.list_item);
+// 		lv.setAdapter(adapter);
+	}
+	
+	
+
+	public void add(View v) {
+		goToActivity(this, CarPicker.class, null);
 	}
 }
