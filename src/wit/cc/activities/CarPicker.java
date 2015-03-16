@@ -40,7 +40,7 @@ public class CarPicker extends Base {
 				// find the radiobutton by returned id
 				carBandButton = (RadioButton) findViewById(selectedId);
 				
-				Toast.makeText(CarPicker.this, carBandButton.getText(), Toast.LENGTH_SHORT).show();
+				Toast.makeText(CarPicker.this, carBandButton.getText() + " selected", Toast.LENGTH_SHORT).show();
 			}
 		});
 		

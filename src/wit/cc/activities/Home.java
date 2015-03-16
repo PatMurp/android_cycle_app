@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
-public class Home extends Base { //ListActivity
+public class Home extends Base { 
 	
 
 	@Override
@@ -14,12 +14,9 @@ public class Home extends Base { //ListActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		
-//		RouteAdapter adapter = new RouteAdapter(this, R.layout.item_route, routes);
-//		setListAdapter(adapter);
-		
-//		RouteAdapter adapter = new RouteAdapter(this, R.layout.item_route, routes);
-//		ListView lv = (ListView) findViewById(R.id.list_item);
-// 		lv.setAdapter(adapter);
+		RouteAdapter adapter = new RouteAdapter(this, R.layout.item_route, routes);
+		ListView lv = (ListView) findViewById(R.id.list);
+ 		lv.setAdapter(adapter);
 	}
 	
 	

@@ -6,12 +6,10 @@ import wit.cc.R;
 import wit.cc.models.Route;
 import wit.cc.models.RouteData;
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 public class Base extends Activity{
 	
