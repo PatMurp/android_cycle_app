@@ -45,4 +45,20 @@ public class CarPicker extends Base {
 		});
 		
 	}
+	
+	public static double calculateCo2Emissions(double distance, int co2Emissions) {
+		double emissionsG = 0;
+		
+		switch (co2Emissions) {
+		case R.id.a1Band:
+			emissionsG = distance * 40;
+			break;
+		case R.id.a2Band:
+			emissionsG = distance * 90;
+
+		default:
+			break;
+		}
+		return emissionsG;
+	}
 }

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- action bar menu -->
+
+    <!-- action bar menu -->
     <string name="menuHelp">Help</string>
     <string name="menuHome">Home</string>
-    
     <string name="app_name">Cycle Credits</string>
     <string name="hello_world">Welcome to Cycle Credits</string>
     <string name="action_settings">Settings</string>
+    
     <!-- home screen -->
     <string name="addARouteLbl">New Route</string>
     <string name="searchRouteLbl">Search Routes</string>
@@ -14,22 +15,38 @@
     <string name="homeDividerText">Recently added Routes</string>
     <string name="homeTableDate">Date</string>
     <string name="homeTableDistance">Distance</string>
+    
     <!-- car picker screen -->
     <string name="spinnerMessage">Please pick a car co2 Band</string>
     <string name="radioGroupSelect">Select a car Co2 Band</string>
+    <string name="a1Selected">A1</string>
+    <string name="a2Selected">A2</string>
+    <string name="a3Selected">A3</string>
+    <string name="a4Selected">A4</string>
+    <string name="b1Selected">B1</string>
+    <string name="b2Selected">B2</string>
+    <string name="cSelected">C</string>
+    <string name="dSelected">D</string>
+    <string name="eSelected">E</string>
+    <string name="fSelected">F</string>
+    <string name="gSelected">G</string>
+    <string name="title_activity_help">Help</string>
     
-	<string name="a1Selected">A1</string>
-	<string name="a2Selected">A2</string>
-	<string name="a3Selected">A3</string>
-	<string name="a4Selected">A4</string>
-	<string name="b1Selected">B1</string>
-	<string name="b2Selected">B2</string>
-	<string name="cSelected">C</string>
-	<string name="dSelected">D</string>
-	<string name="eSelected">E</string>
-	<string name="fSelected">F</string>
-	<string name="gSelected">G</string>
-	
-	
-	
+    <!-- help screen -->
+    <string name="helpHeading">To find CO2 Band Check Tax Disk</string>
+    <string name="helpSubHeading">Cars registered on or after 1 July 2008 only</string>
+    <string name="helpImgDesc">Tax Disk Image</string>
+    <string name="helpDividerText">CO2 Bands and Annual Car Tax</string>
+    <string name="helpA1">A1 €170</string>
+    <string name="helpA2">A2 €180</string>
+    <string name="helpA3">A3 €190</string>
+    <string name="helpA4">A4 €200</string>
+    <string name="helpB1">B1 €270</string>
+    <string name="helpB2">B2 €280</string>
+    <string name="helpC"> C €390</string>
+    <string name="helpD"> D €570</string>
+    <string name="helpE"> E €750</string>
+    <string name="helpF"> F €1200</string>
+    <string name="helpG"> G €2350</string>
+
 </resources>

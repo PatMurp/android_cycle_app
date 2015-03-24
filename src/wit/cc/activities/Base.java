@@ -36,7 +36,7 @@ public class Base extends Activity{
 		
 		switch (item.getItemId()) {
 		case R.id.help:
-			
+			goToActivity(this, Help.class, null);
 			break;
 		case R.id.home:
 			goToActivity(this, Home.class, null);
