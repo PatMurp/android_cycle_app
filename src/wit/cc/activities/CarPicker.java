@@ -42,7 +42,7 @@ public class CarPicker extends Base {
 				if (carBandButton != null) {
 					Toast.makeText(CarPicker.this, carBandButton.getText() + " selected", Toast.LENGTH_SHORT).show();
 				} else {
-					Toast.makeText(CarPicker.this, "Please choose a band", Toast.LENGTH_SHORT).show();
+					Toast.makeText(CarPicker.this, "Please choose a car CO2 band", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});

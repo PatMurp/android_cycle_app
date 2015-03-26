@@ -1,8 +1,10 @@
 package wit.cc.adapters;
 
 import java.util.List;
+
 import wit.cc.R;
 import wit.cc.models.Route;
+import wit.cc.models.Calc;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -38,7 +40,14 @@ public class RouteAdapter extends ArrayAdapter<Route> {
 		TextView tvDistance = (TextView) view.findViewById(R.id.routeDistance);
 		double rDistance = route.getDistance();// get double value
 		String sDistance = String.valueOf(rDistance); // parse to string
-		tvDistance.setText(sDistance);
+		tvDistance.setText(sDistance + " km");
+		
+		TextView tvCo2 = (TextView) view.findViewById(R.id.routeCo2);
+		double rCo2 = Calc.calcCo2Emissions(rDistance, 90); // double co2 value hard coded co2 band
+		String sCo2 = String.valueOf(rCo2);
+		tvCo2.setText(sCo2 + " kg");
+		
+		//((TextView)findViewById(R.id.text)).setText(Html.fromHtml("CO<sup>2</sup>"));
 		
 		return view;
 	}

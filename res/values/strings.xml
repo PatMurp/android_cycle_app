@@ -13,8 +13,11 @@
     <string name="searchRouteLbl">Search Routes</string>
     <string name="carbonCreditsLbl">C02 Saved</string>
     <string name="homeDividerText">Recently added Routes</string>
-    <string name="homeTableDate">Date</string>
-    <string name="homeTableDistance">Distance</string>
+    
+    <!-- list view -->
+    <string name="homeListDate">Date</string>
+    <string name="homeListDistance">Distance</string>
+    <string name="homeListCo2">CO2</string>
     
     <!-- car picker screen -->
     <string name="spinnerMessage">Please pick a car co2 Band</string>
