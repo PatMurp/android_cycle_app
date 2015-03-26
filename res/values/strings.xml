@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+	
+    <string name="CO2sub">CO<sub>2</sub></string>
     <!-- action bar menu -->
     <string name="menuHelp">Help</string>
     <string name="menuHome">Home</string>
