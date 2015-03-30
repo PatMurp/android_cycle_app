@@ -43,11 +43,10 @@ public class RouteAdapter extends ArrayAdapter<Route> {
 		tvDistance.setText(sDistance + " km");
 		
 		TextView tvCo2 = (TextView) view.findViewById(R.id.routeCo2);
-		double rCo2 = Calc.calcCo2Emissions(rDistance, 90); // double co2 value hard coded co2 band
-		String sCo2 = String.valueOf(rCo2);
+		double rEmission = Calc.emissionForBand(route.getCo2band()); // get co2 emission value 
+		double rCo2 = Calc.calcCo2Emissions(rDistance, rEmission); // calculate co2 emissions
+		String sCo2 = String.valueOf(rCo2); // parse to string
 		tvCo2.setText(sCo2 + " kg");
-		
-		//((TextView)findViewById(R.id.text)).setText(Html.fromHtml("CO<sup>2</sup>"));
 		
 		return view;
 	}

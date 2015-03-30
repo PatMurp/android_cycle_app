@@ -5,7 +5,6 @@ public class Calc {
 	// get route distance and car CO2 band and calculate saved C)2 emissions
 	public static double calcCo2Emissions(double routeDistance, double carCo2Emissions) {
 		double calculatedCo2Emissions = 0;
-		carCo2Emissions = 90; // hard coded  value for testing only!!!
 		
 		calculatedCo2Emissions = routeDistance * carCo2Emissions; // grams CO2
 		double kgCo2Emissions = calculatedCo2Emissions / 1000;  // kg's CO2
@@ -13,10 +12,77 @@ public class Calc {
 		return rounded;
 	}
 	
+	// assign emission value for selected car band
+	public static double emissionForBand(String band) {
+		double emissions = 0.0;
+		if (band.equals("A1")) {
+			emissions = 40;
+		}
+		else if (band.equals("A2")) {
+			emissions = 90;
+		}
+		else if (band.equals("A3")) {
+			emissions = 100;
+		}
+		else if (band.equals("A4")) {
+			emissions = 115;
+		}
+		else if (band.equals("B1")) {
+			emissions = 125;
+		}
+		else if (band.equals("B2")) {
+			emissions = 135;
+		}
+		else if (band.equals("C")) {
+			emissions = 148;
+		}
+		else if (band.equals("D")) {
+			emissions = 163;
+		}
+		else if (band.equals("E")) {
+			emissions = 180;
+		}
+		else if (band.equals("F")) {
+			emissions = 223;
+		}
+		else if (band.equals("G")) {
+			emissions = 230;
+		}
+		else
+			emissions = 0.0;
+		return emissions;
+	}
+	
 	// round to 3 decimal places
 	private static double roundTo3decimalPlaces(double value) {
 		double rounded = Math.round(value * 1000.0) / 1000.0;
 		return rounded;
 	}
+	
+//case "A1":
+//    return 40
+//case "A2":
+//    return 90
+//case "A3":
+//    return 100
+//case "A4":
+//    return 115
+//case "B1":
+//    return 125
+//case "B2":
+//    return 135
+//case "C":
+//    return 148
+//case "D":
+//    return 163
+//case "E":
+//    return 180
+//case "F":
+//    return 223
+//case "G":
+//    return 230
+//default:
+//    return 0.0
+//}
 
 }
