@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_width="fill_parent"
+    android:layout_height="50dp" 
+    android:padding="8dp" 
+    style="@style/appLayoutTheme">
+
+    <TextView
+        android:id="@+id/routeDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/routeDate"
+        android:layout_alignBottom="@+id/routeDate"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_toRightOf="@+id/routeDate"
+        android:layout_toEndOf="@+id/routeDate"
+        android:text="@string/homeListDistance" />
 
     <TextView
         android:id="@+id/routeDate"
@@ -10,27 +24,35 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="10dp"
         android:text="@string/homeListDate"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/routeDistance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/routeDate"
-        android:layout_alignBottom="@+id/routeDate"
-        android:layout_centerHorizontal="true"
-        android:text="@string/homeListDistance" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/routeCo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/routeDate"
-        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@+id/routeDistance"
+        android:layout_alignStart="@+id/routeDistance"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="48dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/routeDistance"
         android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:textColor="@color/mediumGreen"
         android:text="@string/CO2sub" />
+
+    <ImageView
+        android:id="@+id/imgDelete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/routeDistance"
+        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
+        android:src="@android:drawable/ic_delete" 
+        android:contentDescription="@string/deleteImageDescription"/>
 
 </RelativeLayout>

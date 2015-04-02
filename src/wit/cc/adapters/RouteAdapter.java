@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
@@ -18,19 +19,20 @@ import android.widget.TextView;
 public class RouteAdapter extends ArrayAdapter<Route> {
 
 	private Context context;
-	private List<Route> objects;
+	private List<Route> routeList;
+	private OnClickListener deleteListener; // reference to delete route
 	
 	// Constructor
-	public RouteAdapter(Context context, int resource, List<Route> objects) {
-		super(context, resource, objects);
+	public RouteAdapter(Context context, int resource, List<Route> routeList) {
+		super(context, resource, routeList);
 		this.context = context;
-		this.objects = objects;
+		this.routeList = routeList;
 	}
 	
 	@SuppressLint("ViewHolder")
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		Route route = objects.get(position);
+		Route route = routeList.get(position);
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 		
 		View view = inflater.inflate(R.layout.item_route, null);
@@ -46,7 +48,7 @@ public class RouteAdapter extends ArrayAdapter<Route> {
 		double rEmission = Calc.emissionForBand(route.getCo2band()); // get co2 emission value 
 		double rCo2 = Calc.calcCo2Emissions(rDistance, rEmission); // calculate co2 emissions
 		String sCo2 = String.valueOf(rCo2); // parse to string
-		tvCo2.setText(sCo2 + " kg");
+		tvCo2.setText(sCo2 + " kg CO2");
 		
 		return view;
 	}
