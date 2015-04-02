@@ -58,31 +58,4 @@ public class Calc {
 		double rounded = Math.round(value * 1000.0) / 1000.0;
 		return rounded;
 	}
-	
-//case "A1":
-//    return 40
-//case "A2":
-//    return 90
-//case "A3":
-//    return 100
-//case "A4":
-//    return 115
-//case "B1":
-//    return 125
-//case "B2":
-//    return 135
-//case "C":
-//    return 148
-//case "D":
-//    return 163
-//case "E":
-//    return 180
-//case "F":
-//    return 223
-//case "G":
-//    return 230
-//default:
-//    return 0.0
-//}
-
 }

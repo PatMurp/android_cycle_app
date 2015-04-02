@@ -11,11 +11,11 @@ public class RouteData {
 		return routes;
 	}
 	
-	public RouteData() {
-		routes.add(new Route("03-01-15", 8.5, "A3"));
-		routes.add(new Route("05-01-15", 6, "B2"));
-		routes.add(new Route("07-01-15", 5.3, "A4"));
-	}
+//	public RouteData() {
+//		routes.add(new Route("03-01-15", 8.5, "A3"));
+//		routes.add(new Route("05-01-15", 6, "B2"));
+//		routes.add(new Route("07-01-15", 5.3, "A4"));
+//	}
 	
 //	private void addItem(Route item) {
 //		routes.add(item);

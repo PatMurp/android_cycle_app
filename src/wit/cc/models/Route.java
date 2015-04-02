@@ -44,6 +44,8 @@ public class Route {
 		return "Route [date=" + date + ", distance=" + distance + ", co2band="
 				+ co2band + "]";
 	}
+
+	
 	
 	
 }

@@ -1,10 +1,10 @@
 package wit.cc.activities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import wit.cc.R;
 import wit.cc.models.Route;
-import wit.cc.models.RouteData;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,9 @@ import android.view.MenuItem;
 
 public class Base extends Activity{
 	
-	List<Route> routes = new RouteData().getRoutes(); // get hard coded data from RouteData.java
+	//List<Route> routes = new RouteData().getRoutes(); // get hard coded data from RouteData.java
+	
+	public static ArrayList<Route> routeList = new ArrayList<Route>();
 	
 	protected void goToActivity(Activity current,
 			Class<? extends Activity> activityClass,
@@ -48,7 +50,8 @@ public class Base extends Activity{
 		
 		return super.onOptionsItemSelected(item);
 	}
-
+	
+	
 	
 
 }

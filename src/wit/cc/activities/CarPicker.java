@@ -2,6 +2,7 @@ package wit.cc.activities;
 
 import wit.cc.R;
 import android.view.View.OnClickListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,11 +37,22 @@ public class CarPicker extends Base {
 				
 				// Get selected radio button from radioGroup
 				int selectedId = radioGroupId.getCheckedRadioButtonId();
+
 				
 				// find the radiobutton by returned id
 				carBandButton = (RadioButton) findViewById(selectedId);
 				if (carBandButton != null) {
 					Toast.makeText(CarPicker.this, carBandButton.getText() + " selected", Toast.LENGTH_SHORT).show();
+					
+					// Create new bundle object
+					Bundle b = new Bundle();
+					b.putString("co2Band", (String) carBandButton.getText());
+					
+					
+					
+					Intent intent = new Intent(v.getContext(), Add.class);
+					intent.putExtra("co2Band", b);
+					startActivity(intent);
 				} else {
 					Toast.makeText(CarPicker.this, "Please choose a car CO2 band", Toast.LENGTH_SHORT).show();
 				}
@@ -48,20 +60,7 @@ public class CarPicker extends Base {
 		});
 		
 	}
-	
-	public static double calculateCo2Emissions(double distance, int co2Emissions) {
-		double emissionsG = 0;
-		
-		switch (co2Emissions) {
-		case R.id.a1Band:
-			emissionsG = distance * 40;
-			break;
-		case R.id.a2Band:
-			emissionsG = distance * 90;
 
-		default:
-			break;
-		}
-		return emissionsG;
-	}
+	
+	
 }

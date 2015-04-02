@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	
+
     <string name="CO2sub">CO<sub>2</sub></string>
     <!-- action bar menu -->
     <string name="menuHelp">Help</string>
@@ -8,18 +8,18 @@
     <string name="app_name">Cycle Credits</string>
     <string name="hello_world">Welcome to Cycle Credits</string>
     <string name="action_settings">Settings</string>
-    
+
     <!-- home screen -->
     <string name="addARouteLbl">New Route</string>
     <string name="searchRouteLbl">Search Routes</string>
     <string name="carbonCreditsLbl">C02 Saved</string>
     <string name="homeDividerText">Recently added Routes</string>
-    
+
     <!-- list view -->
     <string name="homeListDate">Date</string>
     <string name="homeListDistance">Distance</string>
     <string name="homeListCo2">CO2</string>
-    
+
     <!-- car picker screen -->
     <string name="spinnerMessage">Please pick a car co2 Band</string>
     <string name="radioGroupSelect">Select a car Co2 Band</string>
@@ -35,7 +35,7 @@
     <string name="fSelected">F</string>
     <string name="gSelected">G</string>
     <string name="title_activity_help">Help</string>
-    
+
     <!-- help screen -->
     <string name="helpHeading">To find CO2 Band Check Tax Disk</string>
     <string name="helpSubHeading">Cars registered on or after 1 July 2008 only</string>
@@ -52,5 +52,16 @@
     <string name="helpE"> E €750</string>
     <string name="helpF"> F €1200</string>
     <string name="helpG"> G €2350</string>
+    
+    
+    <!-- add route -->
+    <string name="title_activity_add">Add Route</string>
+    <string name="addDateLabel">Date:</string>
+    <string name="addDistanceLabel">Distance:</string>
+    <string name="addCo2BandLabel">Co2Band:</string>
+    <string name="dateInputHint">Route Date</string>
+    <string name="co2BandInputHint">Car co2 Band</string>
+    <string name="addNewRouteBtb">Add Route</string>
+    
 
 </resources>

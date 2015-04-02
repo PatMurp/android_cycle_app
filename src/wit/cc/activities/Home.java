@@ -14,7 +14,7 @@ public class Home extends Base {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		
-		RouteAdapter adapter = new RouteAdapter(this, R.layout.item_route, routes);
+		RouteAdapter adapter = new RouteAdapter(this, R.layout.item_route, routeList);
 		ListView lv = (ListView) findViewById(R.id.list);
  		lv.setAdapter(adapter);
 	}
@@ -22,6 +22,6 @@ public class Home extends Base {
 	
 
 	public void add(View v) {
-		goToActivity(this, CarPicker.class, null);
+		goToActivity(this, Add.class, null);
 	}
 }

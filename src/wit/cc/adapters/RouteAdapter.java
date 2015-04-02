@@ -35,7 +35,7 @@ public class RouteAdapter extends ArrayAdapter<Route> {
 		
 		View view = inflater.inflate(R.layout.item_route, null);
 		TextView tvDate = (TextView) view .findViewById(R.id.routeDate);
-		tvDate.setText(route.getDate());
+		tvDate.setText( route.getDate());
 		
 		TextView tvDistance = (TextView) view.findViewById(R.id.routeDistance);
 		double rDistance = route.getDistance();// get double value
