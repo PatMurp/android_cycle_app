@@ -57,10 +57,22 @@
         android:layout_width="fill_parent" 
         android:layout_height="fill_parent">
 
-	    <ListView
-	        android:id="@+id/list"
-	        android:layout_width="fill_parent"
-	        android:layout_height="fill_parent" />
+
+	     
+	    <FrameLayout
+	        android:id="@+id/fragment_layout"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent" > 
+	        
+	        <TextView 
+	            android:id="@id/android:id/empty"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:gravity="center"
+	            android:text="@string/homeEmptyMessage"
+	            android:textColor="@color/darkGreen1"
+	            />
+	    </FrameLayout>
 	    
     </LinearLayout>
 

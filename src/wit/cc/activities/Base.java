@@ -6,6 +6,7 @@ import java.util.List;
 import wit.cc.R;
 import wit.cc.models.Route;
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +17,7 @@ public class Base extends Activity{
 	//List<Route> routes = new RouteData().getRoutes(); // get hard coded data from RouteData.java
 	
 	public static ArrayList<Route> routeList = new ArrayList<Route>();
+	public Fragment  routeFragment; // share list of routes between activities
 	
 	protected void goToActivity(Activity current,
 			Class<? extends Activity> activityClass,

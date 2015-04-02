@@ -2,6 +2,8 @@ package wit.cc.models;
 
 public class Route {
 	
+	private static int autoid = 1;
+	private int routeId;
 	private String date;
 	private double distance;
 	private String co2band;
@@ -10,9 +12,20 @@ public class Route {
 
 	public Route(String date, double distance, String co2band) {
 		super();
+		this.routeId = autoid++;
 		this.date = date;
 		this.distance = distance;
-		this.setCo2band(co2band);
+		this.co2band = co2band;
+	}
+	
+	
+
+	public int getRouteId() {
+		return routeId;
+	}
+
+	public void setRouteId(int routeId) {
+		this.routeId = routeId;
 	}
 
 	public String getDate() {

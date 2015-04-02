@@ -1,10 +1,8 @@
 package wit.cc.activities;
 
 import wit.cc.R;
-import wit.cc.adapters.RouteAdapter;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
 
 public class Home extends Base { 
 	
@@ -13,13 +11,16 @@ public class Home extends Base {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-		
-		RouteAdapter adapter = new RouteAdapter(this, R.layout.item_route, routeList);
-		ListView lv = (ListView) findViewById(R.id.list);
- 		lv.setAdapter(adapter);
 	}
 	
-	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		routeFragment = new RouteFragement(); // create new fragment
+		getFragmentManager().beginTransaction()
+			.add(R.id.fragment_layout, routeFragment)
+			.commit();
+	}
 
 	public void add(View v) {
 		goToActivity(this, Add.class, null);

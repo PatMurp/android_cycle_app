@@ -14,6 +14,7 @@
     <string name="searchRouteLbl">Search Routes</string>
     <string name="carbonCreditsLbl">C02 Saved</string>
     <string name="homeDividerText">Recently added Routes</string>
+    <string name="homeEmptyMessage">No route\'s added, add a new Route!</string>
 
     <!-- list view -->
     <string name="homeListDate">Date</string>
