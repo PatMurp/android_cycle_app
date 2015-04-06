@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class Base extends Activity{
 	
@@ -18,6 +19,7 @@ public class Base extends Activity{
 	
 	public static ArrayList<Route> routeList = new ArrayList<Route>();
 	public Fragment  routeFragment; // share list of routes between activities
+	protected Bundle activityInfo; // used for persistence
 	
 	protected void goToActivity(Activity current,
 			Class<? extends Activity> activityClass,
@@ -53,7 +55,23 @@ public class Base extends Activity{
 		return super.onOptionsItemSelected(item);
 	}
 	
+	public EditText getEditText(int id) {
+		return ((EditText) findViewById(id));
+	}
+	protected String getEditString(int id) {
+		return (getEditText(id)).getText().toString();
+	}
 	
+	protected void setEditString(int id, String str) {
+		(getEditText(id)).setText(str);
+	}
 	
+	protected void setEditDouble(int id, Double d) {
+		((EditText) findViewById(id)).setText(d.toString());
+	}
+	
+	protected double getEditDouble(int id) {
+		return Double.parseDouble(getEditString(id));
+	}
 
 }

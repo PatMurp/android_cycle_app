@@ -36,4 +36,5 @@ public class RouteAdapter extends ArrayAdapter<Route> {
 	public int getCount() {
 		return routeList.size();
 	}
+	
 }

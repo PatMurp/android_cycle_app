@@ -54,8 +54,7 @@
     <string name="helpE"> E €750</string>
     <string name="helpF"> F €1200</string>
     <string name="helpG"> G €2350</string>
-    
-    
+
     <!-- add route -->
     <string name="title_activity_add">Add Route</string>
     <string name="addDateLabel">Date:</string>
@@ -65,7 +64,7 @@
     <string name="co2BandInputHint">Car co2 Band</string>
     <string name="addNewRouteBtb">Add Route</string>
     <string name="addBandPrompt">Select co2Band</string>
-    
+
     <string-array name="co2Band_array">
         <item>A1</item>
         <item>A2</item>
@@ -79,8 +78,9 @@
         <item>F</item>
         <item>G</item>
     </string-array>
-    
-    
-    
+	
+    <!-- edit route -->
+    <string name="title_activity_edit">Edit Route</string>
+    <string name="editRouteBtn">Edit</string>
 
 </resources>

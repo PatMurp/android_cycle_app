@@ -2,7 +2,7 @@ package wit.cc.models;
 
 public class Calc {
 	
-	// get route distance and car CO2 band and calculate saved C)2 emissions
+	// get route distance and car CO2 band and calculate saved Co2 emissions
 	public static double calcCo2Emissions(double routeDistance, double carCo2Emissions) {
 		double calculatedCo2Emissions = 0;
 		
