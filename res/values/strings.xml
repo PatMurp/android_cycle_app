@@ -64,6 +64,21 @@
     <string name="dateInputHint">Route Date</string>
     <string name="co2BandInputHint">Car co2 Band</string>
     <string name="addNewRouteBtb">Add Route</string>
+    <string name="addBandPrompt">Select co2Band</string>
+    
+    <string-array name="co2Band_array">
+        <item>A1</item>
+        <item>A2</item>
+        <item>A3</item>
+        <item>A4</item>
+        <item>B1</item>
+        <item>B2</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+    </string-array>
     
     
     

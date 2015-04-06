@@ -55,16 +55,7 @@
             android:layout_marginTop="40dp"
             android:text="@string/addCo2BandLabel" />
 
-        <EditText
-            android:id="@+id/newCo2Band"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/addRouteCo2Bandlabel"
-            android:layout_alignBottom="@+id/addRouteCo2Bandlabel"
-            android:layout_alignLeft="@+id/newDistance"
-            android:layout_alignStart="@+id/newDistance"
-            android:ems="10"
-            android:hint="@string/co2BandInputHint" />
+  
 
         <Button
             android:id="@+id/addNewRouteBtn"
@@ -78,5 +69,19 @@
             android:drawableTop="@drawable/new_route"
             android:text="@string/addNewRouteBtb" 
             android:onClick="addRoute"/>
+
+        <Spinner
+            android:id="@+id/chooseCo2Band"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/addRouteCo2Bandlabel"
+            android:layout_alignLeft="@+id/newDistance"
+            android:layout_alignRight="@+id/newDistance"
+            android:layout_alignEnd="@+id/newDistance"
+            android:layout_alignStart="@+id/newDistance"
+            android:layout_below="@+id/newDistance"
+            android:entries="@array/co2Band_array"
+            android:popupBackground="@color/darkGreen2"
+            android:prompt="@string/addBandPrompt" />
 
 </RelativeLayout>

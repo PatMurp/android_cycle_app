@@ -4,6 +4,7 @@ int anim abc_slide_in_bottom 0x7f050002
 int anim abc_slide_in_top 0x7f050003
 int anim abc_slide_out_bottom 0x7f050004
 int anim abc_slide_out_top 0x7f050005
+int array co2Band_array 0x7f0d0000
 int attr actionBarDivider 0x7f010015
 int attr actionBarItemBackground 0x7f010016
 int attr actionBarPopupTheme 0x7f01000f
@@ -369,7 +370,7 @@ int id action_mode_close_button 0x7f0a0020
 int id action_settings 0x7f0a006d
 int id activity_chooser_view_content 0x7f0a0021
 int id addARouteBtn 0x7f0a0064
-int id addNewRouteBtn 0x7f0a0045
+int id addNewRouteBtn 0x7f0a0044
 int id addRouteCo2Bandlabel 0x7f0a0043
 int id addRouteDatelabel 0x7f0a003f
 int id addRouteDistanceLabel 0x7f0a0041
@@ -384,6 +385,7 @@ int id cBand 0x7f0a004e
 int id cHelp 0x7f0a005e
 int id carbonCreditsBtn 0x7f0a0066
 int id checkbox 0x7f0a0029
+int id chooseCo2Band 0x7f0a0045
 int id collapseActionView 0x7f0a0015
 int id dBand 0x7f0a004f
 int id dHelp 0x7f0a005f
@@ -418,7 +420,6 @@ int id listMode 0x7f0a000a
 int id list_item 0x7f0a0025
 int id middle 0x7f0a001d
 int id never 0x7f0a0017
-int id newCo2Band 0x7f0a0044
 int id newDate 0x7f0a0040
 int id newDistance 0x7f0a0042
 int id none 0x7f0a000f
@@ -486,8 +487,8 @@ int layout activity_help 0x7f040019
 int layout activity_home 0x7f04001a
 int layout routerow 0x7f04001b
 int layout support_simple_spinner_dropdown_item 0x7f04001c
-int menu add 0x7f0d0000
-int menu optionsmenu 0x7f0d0001
+int menu add 0x7f0e0000
+int menu optionsmenu 0x7f0e0001
 int mipmap ic_launcher 0x7f030000
 int string CO2sub 0x7f0b0010
 int string a1Selected 0x7f0b0021
@@ -512,6 +513,7 @@ int string abc_shareactionprovider_share_with_application 0x7f0b000e
 int string abc_toolbar_collapse_description 0x7f0b0004
 int string action_settings 0x7f0b0015
 int string addARouteLbl 0x7f0b0016
+int string addBandPrompt 0x7f0b0043
 int string addCo2BandLabel 0x7f0b003f
 int string addDateLabel 0x7f0b003d
 int string addDistanceLabel 0x7f0b003e
