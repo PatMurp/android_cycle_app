@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,13 +21,16 @@ public class Add extends Base {
 	}
 	
 	public void addRoute(View v) {
-		
-		EditText date = (EditText) findViewById(R.id.newDate);
-		String rDate = date.getText().toString(); // convert to string
-		
-		EditText distance = (EditText) findViewById(R.id.newDistance);
-		Double distanceD = Double.parseDouble(distance.getText().toString()); // convert to double
 			
+		String rDate = getEditString(R.id.newDate);
+		double rDistance;
+		
+		try { // catch numberFormat exceptions
+			rDistance = getEditDouble(R.id.newDistance);
+		} catch (NumberFormatException e) {
+			rDistance = 0.0;
+		}
+		
 		// initialize spinner
 		bandSelecter = (Spinner) findViewById(R.id.chooseCo2Band);
 		// get string value from spinner
@@ -48,18 +50,20 @@ public class Add extends Base {
 
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
-				Toast.makeText(Add.this, "Please select Co2 Band", Toast.LENGTH_SHORT).show();
-				
 			}
 		});
 		
-		// save new route to array
-		Route r = new Route(rDate, distanceD, rCo2Band);
-		routeList.add(r);
-		goToActivity(this, Home.class, null);
-		
+		// check for empty fields
+		if ((rDate.length() > 0) && (getEditString(R.id.newDistance).length() > 0)) {
+			
+			// save new route to array
+			Route r = new Route(rDate, rDistance, rCo2Band);
+			routeList.add(r);
+			goToActivity(this, Home.class, null);
+		} 
+		else { 
+			Toast.makeText(this, "Please enter value's for Date and Distance", Toast.LENGTH_SHORT).show();
+			goToActivity(this, Add.class, null); // reload activity to display spinner options
+		}
 	}
-
-	
-
 }

@@ -51,8 +51,14 @@ public class Edit extends Base {
 	public void update(View v) {
 		
 		String routeDate = getEditString(R.id.editDate);
-		double routeDistance = getEditDouble(R.id.editDistance);
+		double routeDistance;
 		String routeCo2Band = getEditString(R.id.editBand);
+		
+		try { // catch numberFormat exceptions
+			routeDistance  = getEditDouble(R.id.editDistance);
+		} catch (NumberFormatException e) {
+			routeDistance = 0.0;
+		}
 		
 		
 		// check for values in edit form
