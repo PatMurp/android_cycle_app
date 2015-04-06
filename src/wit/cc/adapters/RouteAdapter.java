@@ -13,7 +13,7 @@ import android.widget.ArrayAdapter;
 public class RouteAdapter extends ArrayAdapter<Route> {
 
 	private Context context;
-	private List<Route> routeList;
+	public List<Route> routeList;
 	private OnClickListener deleteListener; // reference to delete route
 
 	// Constructor

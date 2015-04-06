@@ -1,7 +1,10 @@
 package wit.cc.activities;
 
+
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +35,7 @@ public class RouteFragement extends ListFragment implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		if (v.getTag() instanceof Route) {	
+			onRouteDelete((Route) v.getTag());
 		}	
 	}
 	
@@ -47,6 +51,29 @@ public class RouteFragement extends ListFragment implements OnClickListener {
 		Intent goEdit = new Intent(getActivity(), Edit.class);
 		goEdit.putExtras(activityInfo);
 		getActivity().startActivity(goEdit);
+	}
+	
+	public void onRouteDelete (final Route route) {
+		
+		String stringDate = route.getDate();
+		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+		builder.setMessage("Are you sure you want to Delete the \'Route\' "
+				+ stringDate + "?");
+		builder.setCancelable(false);
+		
+		builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				Base.routeList.remove(route); // remove from our list
+				listAdapter.routeList.remove(route); // update adapters data
+				listAdapter.notifyDataSetChanged(); // refresh adapter
+			}
+		}).setNegativeButton("No", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				dialog.cancel();
+			}
+		});
+		AlertDialog alert = builder.create();
+		alert.show();
 	}
 
 }
