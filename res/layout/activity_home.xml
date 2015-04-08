@@ -41,7 +41,8 @@
 	        android:layout_height="120dp"
 	        android:layout_margin="2dp"
 	        android:drawableTop="@drawable/carbon_footprint"
-	        android:text="@string/carbonCreditsLbl" />
+	        android:text="@string/carbonCreditsLbl" 
+	        android:onClick="totals"/>
 	    
 	</LinearLayout>
 

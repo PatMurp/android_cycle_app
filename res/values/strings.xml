@@ -78,9 +78,13 @@
         <item>F</item>
         <item>G</item>
     </string-array>
-	
+
     <!-- edit route -->
     <string name="title_activity_edit">Edit Route</string>
     <string name="editRouteBtn">Edit</string>
+    
+    <!-- totals -->
+    <string name="title_activity_totals">Totals</string>
+    <string name="totalHeading">CO2 Savings</string>
 
 </resources>

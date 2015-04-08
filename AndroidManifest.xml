@@ -36,6 +36,10 @@
             android:name=".activities.Edit"
             android:label="@string/title_activity_edit" >
         </activity>
+        <activity
+            android:name=".activities.Totals"
+            android:label="@string/title_activity_totals" >
+        </activity>
     </application>
 
 </manifest>
