@@ -86,5 +86,7 @@
     <!-- totals -->
     <string name="title_activity_totals">Totals</string>
     <string name="totalHeading">CO2 Savings</string>
+    <string name="totalDistanceLabel">Total Distance:</string>
+    <string name="zeroValue">0.0 km</string>
 
 </resources>

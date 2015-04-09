@@ -9,9 +9,34 @@
     tools:context="wit.cc.Totals" >
 
     <TextView
+        android:id="@+id/totalHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/totalHeading"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/totalDistanceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/totalHeader"
+        android:layout_alignStart="@+id/totalHeader"
+        android:layout_below="@+id/totalHeader"
+        android:layout_marginTop="30dp"
+        android:text="@string/totalDistanceLabel"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/totalDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/totalDistanceLabel"
+        android:layout_alignBottom="@+id/totalDistanceLabel"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="50dp"
+        android:layout_toRightOf="@+id/totalDistanceLabel"
+        android:layout_toEndOf="@+id/totalDistanceLabel"
+        android:text="@string/zeroValue" 
+        android:textSize="15sp"/>
 
 </RelativeLayout>
