@@ -60,4 +60,26 @@
         android:text="@string/zeroValuekg"
         android:textSize="15sp" />
 
+    <TextView
+        android:id="@+id/totalValueLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/totalCo2Label"
+        android:layout_alignStart="@+id/totalCo2Label"
+        android:layout_below="@+id/totalCo2Label"
+        android:layout_marginTop="40dp"
+        android:text="@string/totalValueLabel" 
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/totalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/totalValueLabel"
+        android:layout_alignBottom="@+id/totalValueLabel"
+        android:layout_alignLeft="@+id/totalCo2"
+        android:layout_alignStart="@+id/totalCo2"
+        android:text="@string/zeroValue" 
+        android:textSize="15sp"/>
+
 </RelativeLayout>

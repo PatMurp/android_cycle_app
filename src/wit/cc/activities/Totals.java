@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class Totals extends Base {
 	private double tDistance = 0.0;
 	private double tCo2Saving = 0.0;
+	private double tValue = 7; // hardcoded value
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +20,18 @@ public class Totals extends Base {
 		for (Route route: routeList) {
 			tDistance += route.getDistance(); // total distance
 			tCo2Saving += (route.getDistance() * Calc.emissionForBand(route.getCo2band())/ 1000); // total CO2 savings
+			
 		}
 		
 		TextView totalDistance = (TextView) findViewById(R.id.totalDistance);
 		totalDistance.setText(String.format("%.02f km", tDistance)); // set total distance
 		
 		TextView totalCo2 = (TextView) findViewById(R.id.totalCo2);
-		totalCo2.setText(String.format("%.03f kg", tCo2Saving));
+		totalCo2.setText(String.format("%.03f kg", tCo2Saving)); // set total co2 savings
+		
+		TextView totalValue = (TextView) findViewById(R.id.totalValue);
+		Double dValue = Calc.calcCo2Value(tCo2Saving, tValue); // calculate total value
+		totalValue.setText(String.format("%.02f", dValue)); // set total value
 		
 	}
 	

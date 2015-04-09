@@ -58,4 +58,12 @@ public class Calc {
 		double rounded = Math.round(value * 1000.0) / 1000.0;
 		return rounded;
 	}
+	
+	// calculate value of saved co2
+	public static double calcCo2Value(Double co2Total, Double value) {
+		Double result = 0.0;
+		Double tonnesCo2 = co2Total / 1000;
+		result = tonnesCo2 * value;
+		return result;
+	}
 }
