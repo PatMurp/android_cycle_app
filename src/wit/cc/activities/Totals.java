@@ -2,8 +2,8 @@ package wit.cc.activities;
 
 import wit.cc.R;
 import wit.cc.models.Route;
+import wit.cc.models.Calc;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 public class Totals extends Base {
@@ -15,13 +15,17 @@ public class Totals extends Base {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_totals);
 		
-		// itterate through route array
+		// Iterate through route array
 		for (Route route: routeList) {
 			tDistance += route.getDistance(); // total distance
+			tCo2Saving += (route.getDistance() * Calc.emissionForBand(route.getCo2band())/ 1000); // total CO2 savings
 		}
 		
 		TextView totalDistance = (TextView) findViewById(R.id.totalDistance);
-		totalDistance.setText(String.format("%.02f km", tDistance));
+		totalDistance.setText(String.format("%.02f km", tDistance)); // set total distance
+		
+		TextView totalCo2 = (TextView) findViewById(R.id.totalCo2);
+		totalCo2.setText(String.format("%.03f kg", tCo2Saving));
 		
 	}
 	

@@ -87,6 +87,8 @@
     <string name="title_activity_totals">Totals</string>
     <string name="totalHeading">CO2 Savings</string>
     <string name="totalDistanceLabel">Total Distance:</string>
-    <string name="zeroValue">0.0 km</string>
+    <string name="zeroValuekm">0.0 km</string>
+    <string name="zeroValuekg">0.0 kg</string>
+    <string name="totalCo2Label">Co2 Savings:</string>
 
 </resources>

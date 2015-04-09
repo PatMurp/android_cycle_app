@@ -36,7 +36,28 @@
         android:layout_marginStart="50dp"
         android:layout_toRightOf="@+id/totalDistanceLabel"
         android:layout_toEndOf="@+id/totalDistanceLabel"
-        android:text="@string/zeroValue" 
+        android:text="@string/zeroValuekm" 
         android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/totalCo2Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/totalDistanceLabel"
+        android:layout_alignStart="@+id/totalDistanceLabel"
+        android:layout_below="@+id/totalDistanceLabel"
+        android:layout_marginTop="40dp"
+        android:text="@string/totalCo2Label" 
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/totalCo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/totalCo2Label"
+        android:layout_alignLeft="@+id/totalDistance"
+        android:layout_alignStart="@+id/totalDistance"
+        android:text="@string/zeroValuekg"
+        android:textSize="15sp" />
 
 </RelativeLayout>
