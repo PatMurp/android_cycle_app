@@ -11,8 +11,8 @@ import android.widget.TextView;
 public class Totals extends Base {
 	private double tDistance = 0.0; // total distance
 	private double tCo2Saving = 0.0;// total co2 saving kg's
-	private double tValue = 0.0;
-	private double ccValue = 7; //  value of carbon credits set with slider
+	private double tValue = 0.0;// total carbon credit value of co2 saved
+	private double ccValue = 7; //  value of carbon credits set with slider; default value €7/tonne
 	private TextView totalValue; // display total value of carbon credit savings
 	private TextView co2CreditValue; // display carbon credit value
 	
@@ -79,11 +79,6 @@ public class Totals extends Base {
 			updateCustom(); // update cc value and total
 		}
 	};
-	
-	
-	
-
-
 }
 
 
