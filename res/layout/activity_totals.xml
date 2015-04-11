@@ -3,8 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="wit.cc.Totals" >
 
@@ -12,17 +10,23 @@
         android:id="@+id/totalHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_horizontal"
         android:text="@string/totalHeading"
-        android:textSize="20sp" />
+        android:textColor="@color/mediumGreen"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/totalDistanceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/totalHeader"
-        android:layout_alignStart="@+id/totalHeader"
         android:layout_below="@+id/totalHeader"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:text="@string/totalDistanceLabel"
         android:textSize="15sp" />
 
@@ -80,6 +84,42 @@
         android:layout_alignLeft="@+id/totalCo2"
         android:layout_alignStart="@+id/totalCo2"
         android:text="@string/zeroValue" 
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/totalsDivider"
+        style="@style/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:text="@string/totalDividerText" />
+
+    <SeekBar
+        android:id="@+id/seekBarValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/totalDistance"
+        android:layout_alignEnd="@+id/totalDistance"
+        android:layout_below="@+id/totalsDivider"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:progress="7" />
+
+    <TextView
+        android:id="@+id/ccValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/seekBarValue"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/seekBarValue"
+        android:layout_toRightOf="@+id/seekBarValue"
+        android:text="@string/totalCCValue" 
         android:textSize="15sp"/>
 
 </RelativeLayout>
