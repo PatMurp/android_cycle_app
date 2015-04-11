@@ -503,9 +503,10 @@ int layout activity_car_picker 0x7f040018
 int layout activity_edit 0x7f040019
 int layout activity_help 0x7f04001a
 int layout activity_home 0x7f04001b
-int layout activity_totals 0x7f04001c
-int layout routerow 0x7f04001d
-int layout support_simple_spinner_dropdown_item 0x7f04001e
+int layout activity_map 0x7f04001c
+int layout activity_totals 0x7f04001d
+int layout routerow 0x7f04001e
+int layout support_simple_spinner_dropdown_item 0x7f04001f
 int menu optionsmenu 0x7f0e0000
 int mipmap ic_launcher 0x7f030000
 int string CO2sub 0x7f0b0010
@@ -578,6 +579,7 @@ int string spinnerMessage 0x7f0b001f
 int string title_activity_add 0x7f0b003c
 int string title_activity_edit 0x7f0b0044
 int string title_activity_help 0x7f0b002c
+int string title_activity_map 0x7f0b0050
 int string title_activity_totals 0x7f0b0046
 int string totalCCValue 0x7f0b004f
 int string totalCo2Label 0x7f0b004c

@@ -29,6 +29,10 @@ public class Home extends Base {
 		goToActivity(this, Add.class, null);
 	}
 	
+	public void map(View v) {
+		goToActivity(this, Map.class, null);
+	}
+	
 	public void totals(View v) {
 		goToActivity(this, Totals.class, null);
 	}

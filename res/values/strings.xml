@@ -10,8 +10,8 @@
     <string name="action_settings">Settings</string>
 
     <!-- home screen -->
-    <string name="addARouteLbl">New Route</string>
-    <string name="searchRouteLbl">Search Routes</string>
+    <string name="addARouteLbl">Add Route</string>
+    <string name="searchRouteLbl">Map Route</string>
     <string name="carbonCreditsLbl">C02 Saved</string>
     <string name="homeDividerText">Recently added Routes</string>
     <string name="homeEmptyMessage">No route\'s added, add a new Route!</string>
@@ -82,7 +82,7 @@
     <!-- edit route -->
     <string name="title_activity_edit">Edit Route</string>
     <string name="editRouteBtn">Edit</string>
-    
+
     <!-- totals -->
     <string name="title_activity_totals">Totals</string>
     <string name="totalHeading">CO2 Savings</string>
@@ -94,5 +94,8 @@
     <string name="totalValueLabel">Value:</string>
     <string name="totalDividerText">Move slider to change carbon credits value</string>
     <string name="totalCCValue">€7/tonne</string>
+    
+    <!-- map -->
+    <string name="title_activity_map">Map</string>
 
 </resources>

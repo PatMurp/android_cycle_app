@@ -1,8 +1,6 @@
 package wit.cc.activities;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import wit.cc.R;
 import wit.cc.models.Route;
 import android.app.Activity;

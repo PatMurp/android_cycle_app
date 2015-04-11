@@ -40,6 +40,10 @@
             android:name=".activities.Totals"
             android:label="@string/title_activity_totals" >
         </activity>
+        <activity
+            android:name=".activities.Map"
+            android:label="@string/title_activity_map" >
+        </activity>
     </application>
 
 </manifest>
