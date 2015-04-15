@@ -64,6 +64,7 @@
     <string name="co2BandInputHint">Car co2 Band</string>
     <string name="addNewRouteBtb">Add Route</string>
     <string name="addBandPrompt">Select co2Band</string>
+    <string name="addDistanceHint">km only</string>
 
     <string-array name="co2Band_array">
         <item>A1</item>

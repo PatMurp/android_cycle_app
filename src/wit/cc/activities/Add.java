@@ -1,69 +1,65 @@
 package wit.cc.activities;
 
 import wit.cc.R;
+import wit.cc.custom.CustomCo2BandsSelectedListener;
 import wit.cc.models.Route;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 public class Add extends Base {
 	Spinner bandSelecter;
-	ArrayAdapter<String> adapterBandSelected;
+	private Button addRoute;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add);
+		
+		addListenerButton();
+		addListenerOnSpinneritemSelection();
 	}
 	
-	public void addRoute(View v) {
-			
-		String rDate = getEditString(R.id.newDate);
-		double rDistance;
-		
-		try { // catch numberFormat exceptions
-			rDistance = getEditDouble(R.id.newDistance);
-		} catch (NumberFormatException e) {
-			rDistance = 0.0;
-		}
-		
-		// initialize spinner
+	public void addListenerOnSpinneritemSelection() {
 		bandSelecter = (Spinner) findViewById(R.id.chooseCo2Band);
-		// get string value from spinner
-		String rCo2Band = bandSelecter.getSelectedItem().toString();
+		bandSelecter.setOnItemSelectedListener(new CustomCo2BandsSelectedListener());
+	}
+	
+	public void addListenerButton() {
 		
-		// initialize and set Adapter
-		adapterBandSelected = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, R.array.co2Band_array);
-		bandSelecter.setAdapter(adapterBandSelected);
+		bandSelecter = (Spinner) findViewById(R.id.chooseCo2Band);
+		addRoute = (Button) findViewById(R.id.addNewRouteBtn);
 		
-		// band selected listener
-		bandSelecter.setOnItemSelectedListener(new OnItemSelectedListener() {
+		addRoute.setOnClickListener(new OnClickListener() {
 			
 			@Override
-			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
-			}
-
-			@Override
-			public void onNothingSelected(AdapterView<?> parent) {
+			public void onClick(View v) {
+				
+				String rDate = getEditString(R.id.newDate);
+				double rDistance;
+				
+				try { // catch numberFormat exceptions
+					rDistance = getEditDouble(R.id.newDistance);
+				} catch (NumberFormatException e) {
+					rDistance = 0.0;
+				}
+				
+				String rCo2Band = String.valueOf(bandSelecter.getSelectedItem());
+				
+				if ((rDate.length() > 0) && (getEditString(R.id.newDistance).length() > 0)) {
+					
+					// save new route to array
+					Route r = new Route(rDate, rDistance, rCo2Band);
+					routeList.add(r);
+					goToActivity(Add.this, Home.class, null);
+				} else {
+					Toast.makeText(Add.this, "Please enter value's for Date and Distance", Toast.LENGTH_SHORT).show();
+				}
+				
 			}
 		});
-		
-		// check for empty fields
-		if ((rDate.length() > 0) && (getEditString(R.id.newDistance).length() > 0)) {
-			
-			// save new route to array
-			Route r = new Route(rDate, rDistance, rCo2Band);
-			routeList.add(r);
-			goToActivity(this, Home.class, null);
-		} 
-		else { 
-			Toast.makeText(this, "Please enter value's for Date and Distance", Toast.LENGTH_SHORT).show();
-			goToActivity(this, Add.class, null); // reload activity to display spinner options
-		}
 	}
 }

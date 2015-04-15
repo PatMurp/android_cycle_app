@@ -1,8 +1,8 @@
 package wit.cc.activities;
 
 import wit.cc.R;
+import wit.cc.custom.Calc;
 import wit.cc.models.Route;
-import wit.cc.models.Calc;
 import android.os.Bundle;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.SeekBar;

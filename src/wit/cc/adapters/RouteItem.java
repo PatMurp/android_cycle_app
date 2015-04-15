@@ -1,6 +1,6 @@
 package wit.cc.adapters;
 
-import wit.cc.models.Calc;
+import wit.cc.custom.Calc;
 import wit.cc.models.Route;
 import wit.cc.R;
 import android.content.Context;

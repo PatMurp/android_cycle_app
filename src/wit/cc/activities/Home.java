@@ -13,7 +13,7 @@ public class Home extends Base {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		
-		setupRoutes();
+		//setupRoutes();
 	}
 	
 	@Override
