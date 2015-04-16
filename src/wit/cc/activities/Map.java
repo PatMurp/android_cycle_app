@@ -3,7 +3,7 @@ package wit.cc.activities;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.GoogleMap;
-
+import com.google.android.gms.maps.MapFragment;
 import wit.cc.R;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -17,9 +17,15 @@ public class Map extends Base {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		if (servicesOk()) {
+		if (servicesOk()) { // display home
 			setContentView(R.layout.activity_map);
-		} else {
+			if (initMap()) {
+				Toast.makeText(this, "Ready to map", Toast.LENGTH_LONG).show();
+			}
+			else {
+				Toast.makeText(this, "Map not available", Toast.LENGTH_LONG).show();
+			}
+		} else { // display home screen
 			setContentView(R.layout.activity_home);
 		}
 	}
@@ -40,6 +46,17 @@ public class Map extends Base {
 		}
 		return false;
 	}
+	
+	// check to see if mMap reference is set
+	private boolean initMap() {
+		if (mMap == null) {
+			MapFragment mapFrag =
+					(MapFragment) getFragmentManager().findFragmentById(R.id.map);
+			mMap = mapFrag.getMap(); // get reference to map
+		}
+		return (mMap != null);
+	}
+	
 
 	
 }
