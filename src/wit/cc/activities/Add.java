@@ -23,6 +23,7 @@ public class Add extends Base {
 		addListenerOnSpinneritemSelection();
 	}
 	
+	// spinner listener
 	public void addListenerOnSpinneritemSelection() {
 		bandSelecter = (Spinner) findViewById(R.id.chooseCo2Band);
 		bandSelecter.setOnItemSelectedListener(new CustomCo2BandsSelectedListener());
@@ -49,6 +50,7 @@ public class Add extends Base {
 				
 				String rCo2Band = String.valueOf(bandSelecter.getSelectedItem());
 				
+				// check for empty fields
 				if ((rDate.length() > 0) && (getEditString(R.id.newDistance).length() > 0)) {
 					
 					// save new route to array

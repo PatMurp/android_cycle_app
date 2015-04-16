@@ -11,7 +11,7 @@ public class CustomCo2BandsSelectedListener implements OnItemSelectedListener{
 	public void onItemSelected(AdapterView<?> parent, View view, int position,
 			long id) {
 		Toast.makeText(parent.getContext(), 
-				parent.getItemAtPosition(position).toString() + " selected", 
+				parent.getItemAtPosition(position).toString() + " band selected", 
 				Toast.LENGTH_SHORT).show();
 	}
 
