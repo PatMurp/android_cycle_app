@@ -3,7 +3,10 @@ package wit.cc.activities;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.internal.ml;
 import com.google.android.gms.location.FusedLocationProviderApi;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,7 +26,7 @@ import android.widget.Toast;
 
 public class Map extends Base implements
 	GoogleApiClient.ConnectionCallbacks,
-	GoogleApiClient.OnConnectionFailedListener {
+	GoogleApiClient.OnConnectionFailedListener, LocationListener {
 	
 	private static final int GPS_ERRORDIALOG_REQUEST = 9001;
 	GoogleMap mMap; // map object
@@ -183,7 +186,13 @@ public class Map extends Base implements
 	// connect successfully
 	@Override
 	public void onConnected(Bundle arg0) {
-		Toast.makeText(this, "Connected to location service", Toast.LENGTH_SHORT).show();
+		
+		LocationRequest request = LocationRequest.create(); // create instance of LocationRequest class
+		request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+		request.setInterval(5000); //optimum time is 1 minute or 60000
+		request.setFastestInterval(1000);
+		LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, request, this);
+		
 	}
 
 
@@ -191,6 +200,15 @@ public class Map extends Base implements
 	@Override
 	public void onConnectionSuspended(int arg0) {
 		
+	}
+
+
+
+	@Override
+	public void onLocationChanged(Location location) {
+		
+		String msg = "Location: " + location.getLatitude() + ", " + location.getLongitude();
+		Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
 	}
 	
 }
