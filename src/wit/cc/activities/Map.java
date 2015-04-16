@@ -2,6 +2,9 @@ package wit.cc.activities;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderApi;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -12,12 +15,16 @@ import com.google.android.gms.maps.model.LatLng;
 import wit.cc.R;
 import wit.cc.custom.MapStateManager;
 import android.app.Dialog;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class Map extends Base {
+public class Map extends Base implements
+	GoogleApiClient.ConnectionCallbacks,
+	GoogleApiClient.OnConnectionFailedListener {
+	
 	private static final int GPS_ERRORDIALOG_REQUEST = 9001;
 	GoogleMap mMap; // map object
 	private static final float DEFAULTZOOM = 14; // set zoom level
@@ -28,6 +35,8 @@ public class Map extends Base {
 	WATERFORD_LNG = -7.138939,
 	WATERFORD_LAT = 52.246322;
 	
+	GoogleApiClient mGoogleApiClient; // GoogleApiClient object
+	FusedLocationProviderApi fusedLocationProviderApi = LocationServices.FusedLocationApi;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +45,15 @@ public class Map extends Base {
 		if (servicesOk()) { // display home
 			setContentView(R.layout.activity_map);
 			if (initMap()) {
-				Toast.makeText(this, "Ready to map", Toast.LENGTH_LONG).show();
-				goToLocation(WATERFORD_LAT, WATERFORD_LNG, DEFAULTZOOM); // hardcoded location
+				//goToLocation(WATERFORD_LAT, WATERFORD_LNG, DEFAULTZOOM); // hardcoded location
+				
+				// create connection client and connect to service
+				mGoogleApiClient = new GoogleApiClient.Builder(this)
+					.addApi(LocationServices.API)
+					.addConnectionCallbacks(this)
+					.addOnConnectionFailedListener(this)
+					.build();
+				mGoogleApiClient.connect();
 			}
 			else {
 				Toast.makeText(this, "Map not available", Toast.LENGTH_LONG).show();
@@ -113,6 +129,9 @@ public class Map extends Base {
 		case R.id.mapHybrid:
 			mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 			break;
+		case R.id.goToCurrentLocation:
+			goToCurrentLocation();
+			break;
 		default:
 			break;
 		}
@@ -138,6 +157,40 @@ public class Map extends Base {
 			mMap.moveCamera(update); // move camera to position
 			mMap.setMapType(mgr.getSavedMapType()); // get map type
 		}
+	}
+
+	protected void goToCurrentLocation() {
+		
+		Location currentLocation = fusedLocationProviderApi.getLastLocation(mGoogleApiClient);
+		// check for null location
+		if (currentLocation == null) {
+			Toast.makeText(this, "Current location isn,t available", Toast.LENGTH_SHORT).show();
+		} else {
+			// use location information to set currentLocation
+			LatLng ll = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+			CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll, DEFAULTZOOM);
+			mMap.animateCamera(update); // call camera animate method
+		}
+		
+	}
+	// connection failed
+	@Override
+	public void onConnectionFailed(ConnectionResult arg0) {
+		
+	}
+
+
+	// connect successfully
+	@Override
+	public void onConnected(Bundle arg0) {
+		Toast.makeText(this, "Connected to location service", Toast.LENGTH_SHORT).show();
+	}
+
+
+	// if disconnected
+	@Override
+	public void onConnectionSuspended(int arg0) {
+		
 	}
 	
 }

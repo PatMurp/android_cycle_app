@@ -5,9 +5,14 @@
     <item
         android:id="@+id/home"
         android:title="@string/menuHome"
-        android:icon="@drawable/home"
-        android:showAsAction="ifRoom|withText">
+        android:icon="@drawable/home">
     </item>
+    
+    <item 
+        android:id="@+id/goToCurrentLocation"
+        android:title="@string/mCurrentLocation"
+        android:icon="@android:drawable/ic_menu_mylocation"
+        android:showAsAction="ifRoom|withText"/>
     
     <item
         android:id="@+id/help"
