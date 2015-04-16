@@ -6,9 +6,11 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 
 import wit.cc.R;
+import wit.cc.custom.MapStateManager;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.Menu;
@@ -92,7 +94,6 @@ public class Map extends Base {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		
-		
 		switch (item.getItemId()) {
 		case R.id.help:
 			goToActivity(this, Help.class, null);
@@ -116,6 +117,27 @@ public class Map extends Base {
 			break;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	// when activity shuts down save map values
+	@Override
+	protected void onStop() {
+		super.onStop();
+		MapStateManager mgr = new MapStateManager(this);
+		mgr.saveMapState(mMap); // pass reference to map object
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MapStateManager mgr = new MapStateManager(this);
+		CameraPosition position = mgr.getSavedCameraPosition(); // get values
+		if (position != null) {
+			// restore position
+			CameraUpdate update = CameraUpdateFactory.newCameraPosition(position);
+			mMap.moveCamera(update); // move camera to position
+			mMap.setMapType(mgr.getSavedMapType()); // get map type
+		}
 	}
 	
 }
