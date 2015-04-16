@@ -98,5 +98,10 @@
     
     <!-- map -->
     <string name="title_activity_map">Map</string>
-
+    
+    <!-- map menu -->
+    <string name="mNormal">Normal map</string>
+    <string name="mSatellite">Satellite map</string>
+    <string name="mTerrain">Terrain map</string>
+    <string name="mHybrid">Hybrid map</string>
 </resources>

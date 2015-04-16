@@ -11,6 +11,8 @@ import com.google.android.gms.maps.model.LatLng;
 import wit.cc.R;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 public class Map extends Base {
@@ -78,6 +80,42 @@ public class Map extends Base {
 		LatLng ll = new LatLng(lat, lng);
 		CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll, zoom);
 		mMap.moveCamera(update);
+	}
+	
+	// menu for map screen only
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.mapoptions, menu); // inflate map menu
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		
+		
+		switch (item.getItemId()) {
+		case R.id.help:
+			goToActivity(this, Help.class, null);
+			break;
+		case R.id.home:
+			goToActivity(this, Home.class, null);
+			break;
+		case R.id.mapNormal:
+			mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+			break;
+		case R.id.mapSatellite:
+			mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+			break;
+		case R.id.mapTerrain:
+			mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+			break;
+		case R.id.mapHybrid:
+			mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+			break;
+		default:
+			break;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 	
 }
