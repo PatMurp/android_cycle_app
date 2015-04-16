@@ -2,8 +2,12 @@ package wit.cc.activities;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
+
 import wit.cc.R;
 import android.app.Dialog;
 import android.os.Bundle;
@@ -11,7 +15,15 @@ import android.widget.Toast;
 
 public class Map extends Base {
 	private static final int GPS_ERRORDIALOG_REQUEST = 9001;
-	GoogleMap mMap;
+	GoogleMap mMap; // map object
+	private static final float DEFAULTZOOM = 14; // set zoom level
+	
+	
+	@SuppressWarnings("unused")
+	private static final double 
+	WATERFORD_LNG = -7.138939,
+	WATERFORD_LAT = 52.246322;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +33,7 @@ public class Map extends Base {
 			setContentView(R.layout.activity_map);
 			if (initMap()) {
 				Toast.makeText(this, "Ready to map", Toast.LENGTH_LONG).show();
+				goToLocation(WATERFORD_LAT, WATERFORD_LNG, DEFAULTZOOM); // hardcoded location
 			}
 			else {
 				Toast.makeText(this, "Map not available", Toast.LENGTH_LONG).show();
@@ -30,6 +43,8 @@ public class Map extends Base {
 		}
 	}
 	
+	
+
 	// check to see if google play services are available
 	public boolean servicesOk() {
 		int isAvailable = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
@@ -57,6 +72,12 @@ public class Map extends Base {
 		return (mMap != null);
 	}
 	
-
+	// map displays at specific location and zoom level
+	private void goToLocation(double lat, double lng,
+			float zoom) {
+		LatLng ll = new LatLng(lat, lng);
+		CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll, zoom);
+		mMap.moveCamera(update);
+	}
 	
 }
