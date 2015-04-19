@@ -12,8 +12,11 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import wit.cc.R;
 import wit.cc.custom.MapStateManager;
@@ -26,7 +29,8 @@ import android.widget.Toast;
 
 public class Map extends Base implements
 	GoogleApiClient.ConnectionCallbacks,
-	GoogleApiClient.OnConnectionFailedListener, LocationListener {
+	GoogleApiClient.OnConnectionFailedListener, 
+	LocationListener {
 	
 	private static final int GPS_ERRORDIALOG_REQUEST = 9001;
 	GoogleMap mMap; // map object
@@ -40,7 +44,8 @@ public class Map extends Base implements
 	
 	GoogleApiClient mGoogleApiClient; // GoogleApiClient object
 	FusedLocationProviderApi fusedLocationProviderApi = LocationServices.FusedLocationApi;
-
+	Marker marker;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,6 +55,7 @@ public class Map extends Base implements
 			if (initMap()) {
 				//goToLocation(WATERFORD_LAT, WATERFORD_LNG, DEFAULTZOOM); // hardcoded location
 				
+	
 				// create connection client and connect to service
 				mGoogleApiClient = new GoogleApiClient.Builder(this)
 					.addApi(LocationServices.API)
@@ -57,6 +63,7 @@ public class Map extends Base implements
 					.addOnConnectionFailedListener(this)
 					.build();
 				mGoogleApiClient.connect();
+				mMap.getUiSettings().setZoomControlsEnabled(true); // turn on zoom controls
 			}
 			else {
 				Toast.makeText(this, "Map not available", Toast.LENGTH_LONG).show();
@@ -173,6 +180,17 @@ public class Map extends Base implements
 			LatLng ll = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
 			CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll, DEFAULTZOOM);
 			mMap.animateCamera(update); // call camera animate method
+			
+			// allow only one marker
+			if (marker != null) {
+				marker.remove();
+			}
+			// add marker
+			MarkerOptions options = new MarkerOptions()
+			.title("Current position")
+			.position(ll)
+			.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+			marker = mMap.addMarker(options);
 		}
 		
 	}
@@ -186,7 +204,7 @@ public class Map extends Base implements
 	// connect successfully
 	@Override
 	public void onConnected(Bundle arg0) {
-		
+		// check for location updates
 		LocationRequest request = LocationRequest.create(); // create instance of LocationRequest class
 		request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 		request.setInterval(5000); //optimum time is 1 minute or 60000
@@ -208,7 +226,7 @@ public class Map extends Base implements
 	public void onLocationChanged(Location location) {
 		
 		String msg = "Location: " + location.getLatitude() + ", " + location.getLongitude();
-		Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
 	}
 	
 }
