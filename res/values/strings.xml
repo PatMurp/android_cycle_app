@@ -105,5 +105,6 @@
     <string name="mTerrain">Terrain map</string>
     <string name="mHybrid">Hybrid map</string>
     <string name="mCurrentLocation">Current Location</string>
-    <string name="trackRouteBtn">Track Route</string>
+    <string name="trackRouteBtnOff">Track Route</string>
+    <string name="trackRouteBtnOn">Stop Tracking</string>
 </resources>

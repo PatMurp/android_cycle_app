@@ -754,7 +754,8 @@ int string totalDistanceLabel 0x7f08006c
 int string totalDividerText 0x7f080072
 int string totalHeading 0x7f08006b
 int string totalValueLabel 0x7f080071
-int string trackRouteBtn 0x7f08007a
+int string trackRouteBtnOff 0x7f08007a
+int string trackRouteBtnOn 0x7f08007b
 int string wallet_buy_button_place_holder 0x7f080022
 int string zeroValue 0x7f08006d
 int string zeroValuekg 0x7f08006f

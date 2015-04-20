@@ -22,6 +22,7 @@ import wit.cc.R;
 import wit.cc.custom.MapStateManager;
 import android.app.Dialog;
 import android.app.LocalActivityManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,7 +45,7 @@ public class Map extends Base implements
 	FusedLocationProviderApi fusedLocationProviderApi = LocationServices.FusedLocationApi;
 	Marker marker;
 	
-	Boolean tracking;
+	Boolean tracking = false;  // is user tracking ?
 	
 	private static float final_distance = 0.0f;
 	private float routeDistance = 0.0f; // total route distance
@@ -52,7 +53,6 @@ public class Map extends Base implements
 	private double old_long = 0.0;
 	private double new_lat = 0.0;
 	private double new_long = 0.0;
-	
 	float[] result = new float[1]; // array of route points
 	
 	
@@ -81,6 +81,7 @@ public class Map extends Base implements
 					.build();
 				mGoogleApiClient.connect();
 				mMap.getUiSettings().setZoomControlsEnabled(true); // turn on zoom controls
+				setTrackingButtonState();
 			}
 			else {
 				Toast.makeText(this, "Map not available", Toast.LENGTH_LONG).show();
@@ -231,9 +232,12 @@ public class Map extends Base implements
 		
 	}
 	
+	// tracking button
 	public void track(View v) {
 		mGoogleApiClient.disconnect(); // disconnect tracker
 		Toast.makeText(this, "Tracker disconnected", Toast.LENGTH_SHORT).show();
+		
+		setTrackingButtonState();
 	}
 
 
@@ -244,7 +248,7 @@ public class Map extends Base implements
 	}
 
 	
-
+	// called when location changes
 	@Override
 	public void onLocationChanged(Location location) {
 
@@ -255,19 +259,32 @@ public class Map extends Base implements
 		new_lat = location.getLatitude();
 		new_long = location.getLongitude();
 		
+		// calculate distance
 		Location.distanceBetween(old_lat, old_long, new_lat, new_long, result);
 		
 		routeDistance = final_distance + result[0];
 		
+		// reset values
 		final_distance = routeDistance;
-		
 		old_lat = new_lat;
 		old_long = new_long;
 		
 		TextView distanceDisplay = (TextView) findViewById(R.id.liveDistance);
-		distanceDisplay.setText(String.format("%.02f km", routeDistance / 1000));
-		
-		
+		distanceDisplay.setText(String.format("%.02f km", routeDistance / 1000)); // display distance
+	}
+	
+	// change button background and text if tracking 
+	public void setTrackingButtonState() {
+		Button trackingButton = (Button) findViewById(R.id.trackRoute);
+		if (tracking) {
+			trackingButton.setBackgroundColor(Color.RED);
+			trackingButton.setTextColor(Color.WHITE);
+			trackingButton.setText(R.string.trackRouteBtnOn);
+		} else {
+			trackingButton.setBackgroundColor(Color.GREEN);
+			trackingButton.setTextColor(Color.GRAY);
+			trackingButton.setText(R.string.trackRouteBtnOff);
+		}
 	}
 	
 }
