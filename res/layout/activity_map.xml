@@ -27,6 +27,7 @@
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:background="@color/mediumGreen"
-        android:text="@string/trackRouteBtn" />
+        android:text="@string/trackRouteBtn"
+        android:onClick="track" />
 
 </RelativeLayout>
