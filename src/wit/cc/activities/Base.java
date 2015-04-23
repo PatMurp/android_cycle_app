@@ -1,12 +1,16 @@
 package wit.cc.activities;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+
 import wit.cc.R;
 import wit.cc.models.Route;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -71,5 +75,11 @@ public class Base extends Activity{
 	protected double getEditDouble(int id) {
 		return Double.parseDouble(getEditString(id));
 	}
-
+	
+	// get current date and parse to string
+	protected static String getCurrentDateToString() {
+		SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yy");
+		String date  = df.format(Calendar.getInstance().getTime());
+		return date;
+	}
 }

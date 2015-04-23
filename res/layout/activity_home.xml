@@ -52,7 +52,8 @@
         style="@style/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/homeDividerText" />
+        android:text="@string/homeDividerText" 
+        android:textColor="@color/fontGrey"/>
     
 
     <LinearLayout

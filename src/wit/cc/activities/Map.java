@@ -19,7 +19,9 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import wit.cc.R;
+import wit.cc.custom.Calc;
 import wit.cc.custom.MapStateManager;
+import wit.cc.models.Route;
 import android.app.Dialog;
 import android.app.LocalActivityManager;
 import android.graphics.Color;
@@ -47,6 +49,7 @@ public class Map extends Base implements
 	
 	Boolean tracking = false;  // is user tracking ?
 	
+	
 	private static float final_distance = 0.0f;
 	private float routeDistance = 0.0f; // total route distance
 	private double old_lat = 0.0;
@@ -54,6 +57,7 @@ public class Map extends Base implements
 	private double new_lat = 0.0;
 	private double new_long = 0.0;
 	float[] result = new float[1]; // array of route points
+	private double distanceTravelled = 0.0;
 	
 	
 	@SuppressWarnings("unused")
@@ -67,12 +71,11 @@ public class Map extends Base implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		if (servicesOk()) { // display home
+		if (servicesOk()) { // display map
 			setContentView(R.layout.activity_map);
 			if (initMap()) {
 				//goToLocation(WATERFORD_LAT, WATERFORD_LNG, DEFAULTZOOM); // hardcoded location
 				
-	
 				// create connection client and connect to service
 				mGoogleApiClient = new GoogleApiClient.Builder(this)
 					.addApi(LocationServices.API)
@@ -81,7 +84,8 @@ public class Map extends Base implements
 					.build();
 				mGoogleApiClient.connect();
 				mMap.getUiSettings().setZoomControlsEnabled(true); // turn on zoom controls
-				setTrackingButtonState();
+				
+				setTrackingButtonState(); // set button color and text
 			}
 			else {
 				Toast.makeText(this, "Map not available", Toast.LENGTH_LONG).show();
@@ -232,13 +236,7 @@ public class Map extends Base implements
 		
 	}
 	
-	// tracking button
-	public void track(View v) {
-		mGoogleApiClient.disconnect(); // disconnect tracker
-		Toast.makeText(this, "Tracker disconnected", Toast.LENGTH_SHORT).show();
-		
-		setTrackingButtonState();
-	}
+	
 
 
 	// if disconnected
@@ -271,6 +269,9 @@ public class Map extends Base implements
 		
 		TextView distanceDisplay = (TextView) findViewById(R.id.liveDistance);
 		distanceDisplay.setText(String.format("%.02f km", routeDistance / 1000)); // display distance
+		distanceTravelled = Double.valueOf(routeDistance); // convert to double
+		
+		Toast.makeText(this, "distance is " + String.format("%.02f", routeDistance/1000), Toast.LENGTH_SHORT).show();
 	}
 	
 	// change button background and text if tracking 
@@ -286,5 +287,40 @@ public class Map extends Base implements
 			trackingButton.setText(R.string.trackRouteBtnOff);
 		}
 	}
+	
+	// tracking button
+		public void track(View v) {
+			
+			if (tracking) {
+				tracking = false;
+				mGoogleApiClient.disconnect(); // disconnect tracker
+				Toast.makeText(this, "Tracker disconnected", Toast.LENGTH_SHORT).show();
+				
+				TextView distanceDisplay = (TextView) findViewById(R.id.liveDistance);
+				distanceDisplay.setText("0.0 km"); // reset distance
+			} else {
+				tracking = true;
+				
+				goToCurrentLocation();
+				
+				// save route values
+				String rDate = getCurrentDateToString();
+				double rDistance;
+				
+				rDistance =  distanceTravelled / 1000;
+				
+				String rCo2Band = "C"; // hard coded value
+				
+				
+				// save new route to array
+				Route r = new Route(rDate, rDistance, rCo2Band);
+				routeList.add(r);
+				
+				
+				
+			}
+			
+			setTrackingButtonState();
+		}
 	
 }

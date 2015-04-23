@@ -86,16 +86,6 @@
         android:text="@string/zeroValue" 
         android:textSize="15sp"/>
 
-    <TextView
-        android:id="@+id/totalsDivider"
-        style="@style/banner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:text="@string/totalDividerText" />
-
     <SeekBar
         android:id="@+id/seekBarValue"
         android:layout_width="match_parent"
@@ -121,5 +111,15 @@
         android:layout_toRightOf="@+id/seekBarValue"
         android:text="@string/totalCCValue" 
         android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/totalsDivider"
+        style="@style/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       	android:textColor="@color/fontGrey"
+        android:layout_below="@+id/totalValueLabel"
+        android:layout_marginTop="25dp"
+        android:text="@string/totalDividerText" />
 
 </RelativeLayout>

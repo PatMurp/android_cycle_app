@@ -12,5 +12,6 @@
     
     <!-- Font Colors -->
     <color name="appFontColor">#363737</color>
+    <color name="fontGrey">#B8B8B8</color>
     
 </resources>

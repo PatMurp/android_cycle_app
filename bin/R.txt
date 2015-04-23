@@ -571,7 +571,7 @@ int id search_mag_icon 0x7f0d004c
 int id search_plate 0x7f0d004d
 int id search_src_text 0x7f0d004e
 int id search_voice_btn 0x7f0d0052
-int id seekBarValue 0x7f0d008f
+int id seekBarValue 0x7f0d008e
 int id selectionDetails 0x7f0d0016
 int id shortcut 0x7f0d003e
 int id showCustom 0x7f0d0024
@@ -592,7 +592,7 @@ int id totalDistanceLabel 0x7f0d0088
 int id totalHeader 0x7f0d0087
 int id totalValue 0x7f0d008d
 int id totalValueLabel 0x7f0d008c
-int id totalsDivider 0x7f0d008e
+int id totalsDivider 0x7f0d008f
 int id trackRoute 0x7f0d0086
 int id up 0x7f0d0001
 int id useLogo 0x7f0d0027
