@@ -1,13 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/darkGreen1" >
 
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
-        android:layout_height="380dp"
+        android:layout_height="370dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
@@ -19,6 +20,8 @@
         android:layout_above="@+id/trackRoute"
         android:layout_centerHorizontal="true"
         android:text="@string/zeroValuekm"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/fontGrey"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
@@ -29,5 +32,29 @@
         android:background="@color/mediumGreen"
         android:text="@string/trackRouteBtnOff"
         android:onClick="track" />
+
+    <Button
+        android:id="@+id/mapSaveRouteBtn"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/trackRoute"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/liveDistance"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/material_blue_grey_800"
+        android:text="@string/saveMapRouteBtn" />
+
+    <Spinner
+        android:id="@+id/mapSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map"
+        android:layout_toLeftOf="@+id/liveDistance"
+        android:layout_toStartOf="@+id/liveDistance"
+        android:entries="@array/co2Band_array" />
 
 </RelativeLayout>

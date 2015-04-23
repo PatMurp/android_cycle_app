@@ -54,8 +54,14 @@ public class Calc {
 	}
 	
 	// round to 3 decimal places
-	private static double roundTo3decimalPlaces(double value) {
+	public static double roundTo3decimalPlaces(double value) {
 		double rounded = Math.round(value * 1000.0) / 1000.0;
+		return rounded;
+	}
+	
+	// round to 2 decimal places
+	public static double roundto2DecimalPlaces(double value) {
+		double rounded = Math.round(value * 100.0) / 100.0;
 		return rounded;
 	}
 	

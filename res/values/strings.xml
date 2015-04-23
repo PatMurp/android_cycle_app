@@ -107,4 +107,5 @@
     <string name="mCurrentLocation">Current Location</string>
     <string name="trackRouteBtnOff">Track Route</string>
     <string name="trackRouteBtnOn">Stop Tracking</string>
+    <string name="saveMapRouteBtn">Save</string>
 </resources>
