@@ -1,15 +1,25 @@
 package wit.cc.activities;
 
 import wit.cc.R;
+import wit.cc.custom.CustomCo2BandsSelectedListener;
 import wit.cc.models.Route;
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Loader.ForceLoadContentObserver;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+@SuppressLint("DefaultLocale")
 public class Edit extends Base {
 	private Context context;
 	private Route aRoute;
+	// allowed co2 bands
+	String[] validBands = { "A1", "A2", "A3", "A4", "B1", "B2", "C", "D", "E", "F", "G" };
+	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -65,18 +75,37 @@ public class Edit extends Base {
 		if ((routeDate.length() > 0) && (getEditText(R.id.editDistance).length() > 0) 
 				&& (routeCo2Band.length() > 0)) {
 			
-			// reset values if changed
-			aRoute.setDate(routeDate);
-			aRoute.setDistance(routeDistance);
-			aRoute.setCo2band(routeCo2Band);
+			// validate co2 bands
+			if(isCo2BandValid(routeCo2Band) == false) {
+				Toast.makeText(this, "Invalid co2 band", Toast.LENGTH_SHORT).show();
+			} else {
+				// reset values if changed
+				aRoute.setDate(routeDate);
+				aRoute.setDistance(routeDistance);
+				aRoute.setCo2band(routeCo2Band.toUpperCase()); // set to uppercase
+				
+				// Update route data and go to home activity
+				goToActivity(this, Home.class, activityInfo);
+			}
 			
-			// Update route data and go to home activity
-			goToActivity(this, Home.class, activityInfo);
 		}
 		else {
 			Toast.makeText(this, "You must enter a value for Date, Distance. and C02Band", Toast.LENGTH_SHORT).show();
 		}
 	}
+	
+	// check if co2 band is valid
+	private boolean isCo2BandValid(String value) {
+		
+		for (String  band : validBands) {
+			if(value.equalsIgnoreCase(band)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
 
 	
 }

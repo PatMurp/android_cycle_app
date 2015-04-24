@@ -197,7 +197,7 @@ public class Map extends Base implements GoogleApiClient.ConnectionCallbacks,
 		}
 	}
 
-	// press current location icon go to current location apply marker
+	// go to current location apply marker
 	protected void goToCurrentLocation() {
 
 		Location currentLocation = fusedLocationProviderApi
@@ -246,7 +246,6 @@ public class Map extends Base implements GoogleApiClient.ConnectionCallbacks,
 		request.setFastestInterval(1000);
 		LocationServices.FusedLocationApi.requestLocationUpdates(
 				mGoogleApiClient, request, this);
-
 	}
 
 	// if disconnected
@@ -302,8 +301,7 @@ public class Map extends Base implements GoogleApiClient.ConnectionCallbacks,
 		if (tracking) {
 			tracking = false;
 			mGoogleApiClient.disconnect(); // disconnect tracker
-			Toast.makeText(this, "Tracker disconnected", Toast.LENGTH_SHORT)
-					.show();
+			
 			TextView distanceDisplay = (TextView) findViewById(R.id.liveDistance);
 			distanceDisplay.setText("0.0 km"); // reset distance
 		} else {
@@ -329,6 +327,7 @@ public class Map extends Base implements GoogleApiClient.ConnectionCallbacks,
 
 		addRoute.setOnClickListener(new OnClickListener() {
 
+			@SuppressWarnings("null")
 			@Override
 			public void onClick(View v) {
 
@@ -351,6 +350,9 @@ public class Map extends Base implements GoogleApiClient.ConnectionCallbacks,
 					// save new route to array
 					Route r = new Route(rDate, rDistance, rCo2Band);
 					routeList.add(r);
+					mGoogleApiClient.disconnect(); // disconnect tracker
+					final_distance = 0.0f; // reset route distance
+					
 					goToActivity(Map.this, Home.class, null);
 				} else {
 					Toast.makeText(Map.this, "Please track route before saving", Toast.LENGTH_SHORT).show(); 
