@@ -27,6 +27,7 @@ public class Add extends Base {
 	public void addListenerOnSpinneritemSelection() {
 		bandSelecter = (Spinner) findViewById(R.id.chooseCo2Band);
 		bandSelecter.setOnItemSelectedListener(new CustomCo2BandsSelectedListener());
+		bandSelecter.setSelection(6); // default value C
 	}
 	
 	public void addListenerButton() {

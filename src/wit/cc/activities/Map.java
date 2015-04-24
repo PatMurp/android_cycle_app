@@ -318,6 +318,7 @@ public class Map extends Base implements GoogleApiClient.ConnectionCallbacks,
 		bandSelecter = (Spinner) findViewById(R.id.mapSpinner);
 		bandSelecter
 				.setOnItemSelectedListener(new CustomCo2BandsSelectedListener());
+		bandSelecter.setSelection(6); // default value C
 	}
 
 	// save route button listener
