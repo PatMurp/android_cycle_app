@@ -78,7 +78,7 @@
             android:layout_below="@+id/chooseCo2Band"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
-            android:drawableTop="@drawable/new_route"
+            android:drawableTop="@drawable/add"
             android:onClick="addRoute"
             android:text="@string/addNewRouteBtb" />
 

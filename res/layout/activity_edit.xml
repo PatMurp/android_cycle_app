@@ -73,19 +73,18 @@
             android:maxLines="1"
             android:maxLength="2"
             android:hint="@string/addBandPrompt"/>
-         
-         <Button
-            android:id="@+id/editRouteBtn"
-            style="@android:style/Holo.Light.ButtonBar"
-            android:layout_width="99dp"
-            android:layout_height="120dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="2dp"
-            android:layout_marginBottom="75dp"
-            android:drawableTop="@drawable/new_route"
-            android:text="@string/editRouteBtn" 
-            android:onClick="update"/>
 
+         <Button
+             android:id="@+id/editRouteBtn"
+             style="@android:style/Holo.Light.ButtonBar"
+             android:layout_width="99dp"
+             android:layout_height="120dp"
+             android:layout_below="@+id/editBand"
+             android:layout_centerHorizontal="true"
+             android:layout_margin="50dp"
+            
+             android:drawableTop="@drawable/edit"
+             android:onClick="update"
+             android:text="@string/editRouteBtn" />
 
 </RelativeLayout>
