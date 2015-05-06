@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import wit.cc.R;
+import wit.cc.db.DBManager;
 import wit.cc.models.Route;
 import android.app.Activity;
 import android.app.Fragment;
@@ -17,11 +18,25 @@ import android.widget.EditText;
 
 public class Base extends Activity{
 	
-	//List<Route> routes = new RouteData().getRoutes(); // get hard coded data from RouteData.java
 	
-	public static ArrayList<Route> routeList = new ArrayList<Route>();
+	
+	//public static ArrayList<Route> routeList = new ArrayList<Route>();
+	public DBManager dbManager = new DBManager(this);
 	public Fragment  routeFragment; // share list of routes between activities
 	protected Bundle activityInfo; // used for persistence
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		dbManager.open(); // open db
+	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		dbManager.close();// close db
+	}
+	
 	
 	protected void goToActivity(Activity current,
 			Class<? extends Activity> activityClass,
@@ -37,6 +52,7 @@ public class Base extends Activity{
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.optionsmenu, menu); // inflate menu
 		return true;
+		
 	}
 	
 	@Override

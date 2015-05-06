@@ -56,7 +56,8 @@ public class Add extends Base {
 					
 					// save new route to array
 					Route r = new Route(rDate, rDistance, rCo2Band);
-					routeList.add(r);
+					//routeList.add(r);
+					dbManager.insert(r);
 					goToActivity(Add.this, Home.class, null);
 				} else {
 					Toast.makeText(Add.this, "Please enter value's for Date and Distance", Toast.LENGTH_SHORT).show();

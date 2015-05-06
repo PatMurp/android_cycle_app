@@ -27,7 +27,8 @@ public class Edit extends Base {
 		context = this;
 		
 		activityInfo = getIntent().getExtras();
-		aRoute = getRouteObject(activityInfo.getInt("routeID"));
+		aRoute = dbManager.get((activityInfo.getInt("routeID")));
+		//aRoute = getRouteObject(activityInfo.getInt("routeID"));
 		
 		setContentView(R.layout.activity_edit);
 		
@@ -39,24 +40,24 @@ public class Edit extends Base {
 	
 	
 	// get route object
-	private Route getRouteObject(int id) {
-		
-		for (Route r : routeList) {
-			if (r.getRouteId() == id)
-				return r;
-		}
-		return null;
-	}
-	
-	private int getRouteIndex(Route obj) {
-		
-		for (Route r : routeList) {
-			if (r.getRouteId() == obj.getRouteId()) {
-				return routeList.indexOf(r);
-			}
-		}
-		return -1;
-	}
+//	private Route getRouteObject(int id) {
+//		
+//		for (Route r : routeList) {
+//			if (r.getRouteId() == id)
+//				return r;
+//		}
+//		return null;
+//	}
+//	
+//	private int getRouteIndex(Route obj) {
+//		
+//		for (Route r : routeList) {
+//			if (r.getRouteId() == obj.getRouteId()) {
+//				return routeList.indexOf(r);
+//			}
+//		}
+//		return -1;
+//	}
 	
 	public void update(View v) {
 		
@@ -85,6 +86,7 @@ public class Edit extends Base {
 				aRoute.setCo2band(routeCo2Band.toUpperCase()); // set to uppercase
 				
 				// Update route data and go to home activity
+				dbManager.update(aRoute);
 				goToActivity(this, Home.class, activityInfo);
 			}
 			

@@ -349,7 +349,8 @@ public class Map extends Base implements GoogleApiClient.ConnectionCallbacks,
 				if (rDistance > 0) {
 					// save new route to array
 					Route r = new Route(rDate, rDistance, rCo2Band);
-					routeList.add(r);
+					//routeList.add(r);
+					dbManager.insert(r);
 					mGoogleApiClient.disconnect(); // disconnect tracker
 					final_distance = 0.0f; // reset route distance
 					

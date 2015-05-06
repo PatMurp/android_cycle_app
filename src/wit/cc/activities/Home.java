@@ -13,7 +13,8 @@ public class Home extends Base {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		
-		//setupRoutes();
+		// uncomment to populate database on first run of app
+		//dbManager.setupList();
 	}
 	
 	@Override
@@ -37,9 +38,4 @@ public class Home extends Base {
 		goToActivity(this, Totals.class, null);
 	}
 	
-	public void setupRoutes() {
-		routeList.add(new Route("03-04-15", 7.5, "A2"));
-		routeList.add(new Route("06-04-15", 6.3, "B2"));
-		routeList.add(new Route("10-04-15", 6.1, "A4"));
-	}
 }

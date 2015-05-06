@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ListView;
 import wit.cc.adapters.RouteAdapter;
+import wit.cc.db.DBManager;
 import wit.cc.models.Route;
 
 public class RouteFragement extends ListFragment implements OnClickListener {
@@ -28,7 +29,7 @@ public class RouteFragement extends ListFragment implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		listAdapter = new RouteAdapter(activity, this, Base.routeList);
+		listAdapter = new RouteAdapter(activity, this, activity.dbManager.getAll());
 		setListAdapter(listAdapter);
 	}
 
@@ -63,7 +64,8 @@ public class RouteFragement extends ListFragment implements OnClickListener {
 		
 		builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int id) {
-				Base.routeList.remove(route); // remove from our list
+				//Base.routeList.remove(route); // remove from our list
+				activity.dbManager.delete(route.getRouteId());
 				listAdapter.routeList.remove(route); // update adapters data
 				listAdapter.notifyDataSetChanged(); // refresh adapter
 			}

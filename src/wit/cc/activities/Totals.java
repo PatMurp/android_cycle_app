@@ -22,7 +22,7 @@ public class Totals extends Base {
 		setContentView(R.layout.activity_totals);
 		
 		// Iterate through route array
-		for (Route route: routeList) {
+		for (Route route: dbManager.getAll()) {
 			tDistance += route.getDistance(); // total distance
 			tCo2Saving += (route.getDistance() * Calc.emissionForBand(route.getCo2band())/ 1000); // total CO2 savings
 			
