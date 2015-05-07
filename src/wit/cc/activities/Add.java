@@ -34,7 +34,7 @@ public class Add extends Base {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add);
 
-		// get current date by calander
+		// get current date by calendar
 		Calendar c = Calendar.getInstance();
 		mYear = c.get(Calendar.YEAR);
 		mMonth = c.get(Calendar.MONTH);
