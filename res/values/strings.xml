@@ -8,6 +8,7 @@
     <string name="app_name">Cycle Credits</string>
     <string name="hello_world">Welcome to Cycle Credits</string>
     <string name="action_settings">Settings</string>
+    
 
     <!-- home screen -->
     <string name="addARouteLbl">Add Route</string>
@@ -15,6 +16,7 @@
     <string name="carbonCreditsLbl">C02 Saved</string>
     <string name="homeDividerText">Recently added Routes</string>
     <string name="homeEmptyMessage">No route\'s added, add a new Route!</string>
+    <string name="title_activity_home">Home</string>
 
     <!-- list view -->
     <string name="homeListDate">Date</string>
@@ -95,10 +97,10 @@
     <string name="totalValueLabel">Value:</string>
     <string name="totalDividerText">Move slider to change carbon credits value</string>
     <string name="totalCCValue">€7/tonne</string>
-    
+
     <!-- map -->
     <string name="title_activity_map">Map</string>
-    
+
     <!-- map menu -->
     <string name="mNormal">Normal map</string>
     <string name="mSatellite">Satellite map</string>
@@ -108,4 +110,17 @@
     <string name="trackRouteBtnOff">Track Route</string>
     <string name="trackRouteBtnOn">Stop Tracking</string>
     <string name="saveMapRouteBtn">Save</string>
+    
+    <!-- login -->
+    <string name="title_activity_login">Login</string>
+    <string name="menuLogout">Logout</string>
+    <string name="LoginHeading">Login to Cycle Credits</string>
+    <string name="loginEmail">Email:</string>
+    <string name="loginPassword">Password:</string>
+    <string name="loginTextBtn">Login</string>
+    <!-- hints include actual values for demo purposes only -->
+    <string name="loginPasswordHint">Password = p</string>
+    <string name="loginEmailHint">Email = p@p.com</string>
+    
+
 </resources>

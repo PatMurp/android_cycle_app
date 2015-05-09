@@ -10,6 +10,7 @@ import wit.cc.models.Route;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.Menu;
@@ -65,12 +66,24 @@ public class Base extends Activity{
 		case R.id.home:
 			goToActivity(this, Home.class, null);
 			break;
+		case R.id.logout:
+			logout();
 
 		default:
 			break;
 		}
 		
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private void logout() {
+		SharedPreferences.Editor editor = getSharedPreferences("loginPrefs", 0).edit();
+		editor.putBoolean("loggedin", false);
+		editor.commit();
+		
+		startActivity(new Intent(Base.this, Login.class)
+		.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+		finish();
 	}
 	
 	public EditText getEditText(int id) {
