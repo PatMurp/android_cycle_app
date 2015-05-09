@@ -34,14 +34,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/routeDistance"
-        android:layout_alignStart="@+id/routeDistance"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_alignStart="@+id/routeDistance"
         android:layout_below="@+id/routeDistance"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:textColor="@color/mediumGreen"
-        android:text="@string/CO2sub" />
+        android:text="@string/CO2sub"
+        android:textColor="@color/darkGreen2" />
 
     <ImageView
         android:id="@+id/imgDelete"

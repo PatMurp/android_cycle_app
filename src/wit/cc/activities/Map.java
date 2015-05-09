@@ -305,8 +305,8 @@ public class Map extends Base implements GoogleApiClient.ConnectionCallbacks,
 			TextView distanceDisplay = (TextView) findViewById(R.id.liveDistance);
 			distanceDisplay.setText("0.0 km"); // reset distance
 		} else {
+			mGoogleApiClient.connect();
 			tracking = true;
-			goToCurrentLocation();
 		}
 		setTrackingButtonState(); // set button state
 	}
