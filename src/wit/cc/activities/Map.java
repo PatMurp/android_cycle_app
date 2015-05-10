@@ -87,8 +87,8 @@ public class Map extends Base implements GoogleApiClient.ConnectionCallbacks,
 						.addOnConnectionFailedListener(this).build();
 				mGoogleApiClient.connect();
 				
-				// turn on zoom controls for genymotion demo only
-				mMap.getUiSettings().setZoomControlsEnabled(true); 
+				// display zoom controls 
+				//mMap.getUiSettings().setZoomControlsEnabled(true); 
 
 				setTrackingButtonState(); // set button color and text
 			} else {
